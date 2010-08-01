@@ -1,0 +1,268 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		614B55901205455A0070FDED /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B557D1205455A0070FDED /* connection.cpp */; };
+		614B55911205455A0070FDED /* conninode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B557F1205455A0070FDED /* conninode.cpp */; };
+		614B55921205455A0070FDED /* cui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55811205455A0070FDED /* cui.cpp */; };
+		614B55931205455A0070FDED /* decpcap.c in Sources */ = {isa = PBXBuildFile; fileRef = 614B55831205455A0070FDED /* decpcap.c */; };
+		614B55941205455A0070FDED /* inode2prog.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55851205455A0070FDED /* inode2prog.cpp */; };
+		614B55961205455A0070FDED /* nethogs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55881205455A0070FDED /* nethogs.cpp */; };
+		614B55971205455A0070FDED /* packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558A1205455A0070FDED /* packet.cpp */; };
+		614B55981205455A0070FDED /* process.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558C1205455A0070FDED /* process.cpp */; };
+		614B55991205455A0070FDED /* refresh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558E1205455A0070FDED /* refresh.cpp */; };
+		614B565412054AC50070FDED /* libcurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565312054AC50070FDED /* libcurses.dylib */; };
+		614B565812054AE80070FDED /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565712054AE80070FDED /* libpcap.dylib */; };
+		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
+		8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* netusage.1 */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		614B557D1205455A0070FDED /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
+		614B557E1205455A0070FDED /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		614B557F1205455A0070FDED /* conninode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conninode.cpp; sourceTree = "<group>"; };
+		614B55801205455A0070FDED /* conninode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conninode.h; sourceTree = "<group>"; };
+		614B55811205455A0070FDED /* cui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cui.cpp; sourceTree = "<group>"; };
+		614B55821205455A0070FDED /* cui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cui.h; sourceTree = "<group>"; };
+		614B55831205455A0070FDED /* decpcap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decpcap.c; sourceTree = "<group>"; };
+		614B55841205455A0070FDED /* decpcap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decpcap.h; sourceTree = "<group>"; };
+		614B55851205455A0070FDED /* inode2prog.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inode2prog.cpp; sourceTree = "<group>"; };
+		614B55861205455A0070FDED /* inode2prog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inode2prog.h; sourceTree = "<group>"; };
+		614B55871205455A0070FDED /* nethogs_testsum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nethogs_testsum.cpp; sourceTree = "<group>"; };
+		614B55881205455A0070FDED /* nethogs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = nethogs.cpp; sourceTree = "<group>"; };
+		614B55891205455A0070FDED /* nethogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nethogs.h; sourceTree = "<group>"; };
+		614B558A1205455A0070FDED /* packet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = packet.cpp; sourceTree = "<group>"; };
+		614B558B1205455A0070FDED /* packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = packet.h; sourceTree = "<group>"; };
+		614B558C1205455A0070FDED /* process.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = process.cpp; sourceTree = "<group>"; };
+		614B558D1205455A0070FDED /* process.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = process.h; sourceTree = "<group>"; };
+		614B558E1205455A0070FDED /* refresh.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = refresh.cpp; sourceTree = "<group>"; };
+		614B558F1205455A0070FDED /* refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = refresh.h; sourceTree = "<group>"; };
+		614B565312054AC50070FDED /* libcurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurses.dylib; path = usr/lib/libcurses.dylib; sourceTree = SDKROOT; };
+		614B565712054AE80070FDED /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
+		8DD76FB20486AB0100D96B5E /* netusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = netusage; sourceTree = BUILT_PRODUCTS_DIR; };
+		C6A0FF2C0290799A04C91782 /* netusage.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = netusage.1; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76FAD0486AB0100D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				614B565412054AC50070FDED /* libcurses.dylib in Frameworks */,
+				614B565812054AE80070FDED /* libpcap.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* netusage */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				C6A0FF2B0290797F04C91782 /* Documentation */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+				614B565312054AC50070FDED /* libcurses.dylib */,
+				614B565712054AE80070FDED /* libpcap.dylib */,
+			);
+			name = netusage;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				614B557D1205455A0070FDED /* connection.cpp */,
+				614B557E1205455A0070FDED /* connection.h */,
+				614B557F1205455A0070FDED /* conninode.cpp */,
+				614B55801205455A0070FDED /* conninode.h */,
+				614B55811205455A0070FDED /* cui.cpp */,
+				614B55821205455A0070FDED /* cui.h */,
+				614B55831205455A0070FDED /* decpcap.c */,
+				614B55841205455A0070FDED /* decpcap.h */,
+				614B55851205455A0070FDED /* inode2prog.cpp */,
+				614B55861205455A0070FDED /* inode2prog.h */,
+				614B55871205455A0070FDED /* nethogs_testsum.cpp */,
+				614B55881205455A0070FDED /* nethogs.cpp */,
+				614B55891205455A0070FDED /* nethogs.h */,
+				614B558A1205455A0070FDED /* packet.cpp */,
+				614B558B1205455A0070FDED /* packet.h */,
+				614B558C1205455A0070FDED /* process.cpp */,
+				614B558D1205455A0070FDED /* process.h */,
+				614B558E1205455A0070FDED /* refresh.cpp */,
+				614B558F1205455A0070FDED /* refresh.h */,
+				08FB7796FE84155DC02AAC07 /* main.c */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DD76FB20486AB0100D96B5E /* netusage */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6A0FF2B0290797F04C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6A0FF2C0290799A04C91782 /* netusage.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76FA90486AB0100D96B5E /* netusage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "netusage" */;
+			buildPhases = (
+				8DD76FAB0486AB0100D96B5E /* Sources */,
+				8DD76FAD0486AB0100D96B5E /* Frameworks */,
+				8DD76FAF0486AB0100D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = netusage;
+			productInstallPath = "$(HOME)/bin";
+			productName = netusage;
+			productReference = 8DD76FB20486AB0100D96B5E /* netusage */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "netusage" */;
+			compatibilityVersion = "Xcode 3.1";
+			hasScannedForEncodings = 1;
+			mainGroup = 08FB7794FE84155DC02AAC07 /* netusage */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76FA90486AB0100D96B5E /* netusage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76FAB0486AB0100D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DD76FAC0486AB0100D96B5E /* main.c in Sources */,
+				614B55901205455A0070FDED /* connection.cpp in Sources */,
+				614B55911205455A0070FDED /* conninode.cpp in Sources */,
+				614B55921205455A0070FDED /* cui.cpp in Sources */,
+				614B55931205455A0070FDED /* decpcap.c in Sources */,
+				614B55941205455A0070FDED /* inode2prog.cpp in Sources */,
+				614B55961205455A0070FDED /* nethogs.cpp in Sources */,
+				614B55971205455A0070FDED /* packet.cpp in Sources */,
+				614B55981205455A0070FDED /* process.cpp in Sources */,
+				614B55991205455A0070FDED /* refresh.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB928608733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = netusage;
+			};
+			name = Debug;
+		};
+		1DEB928708733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_MODEL_TUNING = G5;
+				INSTALL_PATH = /usr/local/bin;
+				PRODUCT_NAME = netusage;
+			};
+			name = Release;
+		};
+		1DEB928A08733DD80010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = "-lncurses";
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Debug;
+		};
+		1DEB928B08733DD80010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "netusage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928608733DD80010E9CD /* Debug */,
+				1DEB928708733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "netusage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB928A08733DD80010E9CD /* Debug */,
+				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}
