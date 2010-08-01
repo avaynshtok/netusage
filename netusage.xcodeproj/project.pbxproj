@@ -18,6 +18,7 @@
 		614B55991205455A0070FDED /* refresh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558E1205455A0070FDED /* refresh.cpp */; };
 		614B565412054AC50070FDED /* libcurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565312054AC50070FDED /* libcurses.dylib */; };
 		614B565812054AE80070FDED /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565712054AE80070FDED /* libpcap.dylib */; };
+		614B5687120554010070FDED /* getcons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B5686120554010070FDED /* getcons.cpp */; };
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* netusage.1 */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,8 @@
 		614B558F1205455A0070FDED /* refresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = refresh.h; sourceTree = "<group>"; };
 		614B565312054AC50070FDED /* libcurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurses.dylib; path = usr/lib/libcurses.dylib; sourceTree = SDKROOT; };
 		614B565712054AE80070FDED /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
+		614B5685120554010070FDED /* getcons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getcons.h; sourceTree = "<group>"; };
+		614B5686120554010070FDED /* getcons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = getcons.cpp; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* netusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = netusage; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* netusage.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = netusage.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +113,8 @@
 				614B558E1205455A0070FDED /* refresh.cpp */,
 				614B558F1205455A0070FDED /* refresh.h */,
 				08FB7796FE84155DC02AAC07 /* main.c */,
+				614B5685120554010070FDED /* getcons.h */,
+				614B5686120554010070FDED /* getcons.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -183,6 +188,7 @@
 				614B55971205455A0070FDED /* packet.cpp in Sources */,
 				614B55981205455A0070FDED /* process.cpp in Sources */,
 				614B55991205455A0070FDED /* refresh.cpp in Sources */,
+				614B5687120554010070FDED /* getcons.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
