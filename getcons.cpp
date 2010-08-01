@@ -28,7 +28,8 @@ struct tcp_index {
 	struct xtcpcb	*tp;
 };
 
-int main (int argc, const char * argv[]) {
+// mostly from: http://src.gnu-darwin.org/src/contrib/bsnmp/snmp_mibII/mibII_tcp.c.html
+int gc_main (int argc, const char * argv[]) {
 /*	struct netinfo *p;
 	int idx;
 	struct xinpgen *inpg;
@@ -99,7 +100,9 @@ int main (int argc, const char * argv[]) {
 		inaddr2 = ntohl(tp->xt_inp.inp_laddr.s_addr);
 		char *dest = inet_ntoa(*((struct in_addr *)&inaddr2)); /* cast x as a struct in_addr */
 		//printf("%i -> %i\n", inaddr1, inaddr2);
-		printf(" %s\n", dest);
+		printf(" %s ", dest);
+		
+		printf("pid: %i\n", tp->xt_socket.so_uid);
 													
 	}
 		

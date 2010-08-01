@@ -261,7 +261,7 @@ public:
 	handle * next;
 };
 
-int nethogs_main (int argc, char** argv)
+int main_nethogs (int argc, char** argv)
 {
 	process_init();
 
@@ -404,7 +404,7 @@ int nethogs_main (int argc, char** argv)
 
 		if (needrefresh)
 		{
-			do_refresh();
+			//do_refresh();
 			needrefresh = false;
 		}
 

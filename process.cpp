@@ -236,6 +236,12 @@ Process * getProcess (Connection * connection, char * devicename)
 {
 	unsigned long inode = conninode[connection->refpacket->gethashstring()];
 
+	char *hash = connection->refpacket->gethashstring();
+	printf("hash: %s", hash);
+	fflush(stdout);
+	
+	return new Process (0, "", connection->refpacket->gethashstring());
+	
 	if (inode == 0)
 	{
 		// no? refresh and check conn/inode table
