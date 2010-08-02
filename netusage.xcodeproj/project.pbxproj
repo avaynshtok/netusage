@@ -64,6 +64,7 @@
 		614B5686120554010070FDED /* getcons.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = getcons.cpp; sourceTree = "<group>"; };
 		614B58421205F6170070FDED /* netstat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netstat.h; sourceTree = "<group>"; };
 		614B58431205F6170070FDED /* netstat.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = netstat.cpp; sourceTree = "<group>"; };
+		614B5DDA12062EDD0070FDED /* unpcb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = unpcb.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* netusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = netusage; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* netusage.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = netusage.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -118,6 +119,7 @@
 				08FB7796FE84155DC02AAC07 /* main.c */,
 				614B5685120554010070FDED /* getcons.h */,
 				614B5686120554010070FDED /* getcons.cpp */,
+				614B5DDA12062EDD0070FDED /* unpcb.h */,
 				614B58421205F6170070FDED /* netstat.h */,
 				614B58431205F6170070FDED /* netstat.cpp */,
 			);
@@ -235,7 +237,10 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_CFLAGS = "-lncurses";
+				OTHER_CFLAGS = (
+					"-DPRIVATE",
+					"-lncurses",
+				);
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
