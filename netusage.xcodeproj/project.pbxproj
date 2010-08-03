@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3AD816F4120674120010A5A0 /* lsof.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3AD816F3120674120010A5A0 /* lsof.cpp */; };
 		614B55901205455A0070FDED /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B557D1205455A0070FDED /* connection.cpp */; };
 		614B55911205455A0070FDED /* conninode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B557F1205455A0070FDED /* conninode.cpp */; };
 		614B55921205455A0070FDED /* cui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55811205455A0070FDED /* cui.cpp */; };
@@ -19,7 +20,6 @@
 		614B565412054AC50070FDED /* libcurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565312054AC50070FDED /* libcurses.dylib */; };
 		614B565812054AE80070FDED /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565712054AE80070FDED /* libpcap.dylib */; };
 		614B5687120554010070FDED /* getcons.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B5686120554010070FDED /* getcons.cpp */; };
-		614B58441205F6170070FDED /* netstat.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B58431205F6170070FDED /* netstat.cpp */; };
 		8DD76FAC0486AB0100D96B5E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* main.c */; settings = {ATTRIBUTES = (); }; };
 		8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* netusage.1 */; };
 /* End PBXBuildFile section */
@@ -39,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		08FB7796FE84155DC02AAC07 /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		3AD816F2120674120010A5A0 /* lsof.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lsof.h; sourceTree = "<group>"; };
+		3AD816F3120674120010A5A0 /* lsof.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lsof.cpp; sourceTree = "<group>"; };
 		614B557D1205455A0070FDED /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
 		614B557E1205455A0070FDED /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
 		614B557F1205455A0070FDED /* conninode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = conninode.cpp; sourceTree = "<group>"; };
@@ -122,6 +124,8 @@
 				614B5DDA12062EDD0070FDED /* unpcb.h */,
 				614B58421205F6170070FDED /* netstat.h */,
 				614B58431205F6170070FDED /* netstat.cpp */,
+				3AD816F2120674120010A5A0 /* lsof.h */,
+				3AD816F3120674120010A5A0 /* lsof.cpp */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -196,7 +200,7 @@
 				614B55981205455A0070FDED /* process.cpp in Sources */,
 				614B55991205455A0070FDED /* refresh.cpp in Sources */,
 				614B5687120554010070FDED /* getcons.cpp in Sources */,
-				614B58441205F6170070FDED /* netstat.cpp in Sources */,
+				3AD816F4120674120010A5A0 /* lsof.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

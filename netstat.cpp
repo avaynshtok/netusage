@@ -104,7 +104,7 @@ static void unixdomainpr(struct xunpcb64 *xunp, struct xsocket64 *so)
 
 //void
 //unixpr(u_long count_off, u_long gencnt_off, u_long dhead_off, u_long shead_off)
-int main (int argc, const char * argv[])
+int ns_main (int argc, const char * argv[])
 {
 	char 	*buf;
 	int	ret, type;
@@ -142,8 +142,8 @@ int main (int argc, const char * argv[])
 //			continue;
 			
 			/* Ignore PCBs which were freed during copyout. */
-//			if (xunp->xu_unpp.unp_gencnt > oxug->xug_gen)
-//				continue;
+			if (xunp->xunp_gencnt > oxug->xug_gen)
+				continue;
 			unixdomainpr(xunp, so);
 		}
 		if (xug != oxug && xug->xug_gen != oxug->xug_gen) {

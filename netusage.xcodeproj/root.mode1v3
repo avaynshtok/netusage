@@ -266,20 +266,18 @@
 								<string>08FB7794FE84155DC02AAC07</string>
 								<string>08FB7795FE84155DC02AAC07</string>
 								<string>1C37FBAC04509CD000000102</string>
-								<string>614B565F12054B140070FDED</string>
-								<string>614B566012054B140070FDED</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>26</integer>
+									<integer>28</integer>
 									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 0}, {243, 698}}</string>
+							<string>{{0, 15}, {243, 698}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -316,7 +314,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>netstat.cpp</string>
+								<string>lsof.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -324,11 +322,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>netstat.cpp</string>
+										<string>lsof.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>614B5F0C12065FA20070FDED</string>
+										<string>61C5462D12067FCC00047DE2</string>
 										<key>history</key>
 										<array>
 											<string>619F14371205329200E42B1F</string>
@@ -354,8 +352,13 @@
 											<string>614B5E39120637050070FDED</string>
 											<string>614B5ECE120658840070FDED</string>
 											<string>614B5F0012065F350070FDED</string>
-											<string>614B5F0112065F350070FDED</string>
-											<string>614B5F0212065F350070FDED</string>
+											<string>61C545D6120678D900047DE2</string>
+											<string>61C545F012067C0C00047DE2</string>
+											<string>61C5460012067D3700047DE2</string>
+											<string>61C5461A12067ED100047DE2</string>
+											<string>61C5461B12067ED100047DE2</string>
+											<string>61C5462712067F8200047DE2</string>
+											<string>61C5462812067F8200047DE2</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -413,9 +416,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>614B55D6120546B30070FDED</string>
+				<string>61C545D9120678D900047DE2</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>614B55D7120546B30070FDED</string>
+				<string>61C545DA120678D900047DE2</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -553,11 +556,10 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1C530D57069F1CE1000CFCEE</string>
-		<string>614B55D9120546B30070FDED</string>
-		<string>614B55DA120546B30070FDED</string>
-		<string>619F14441205329200E42B1F</string>
+		<string>61C545DB120678D900047DE2</string>
+		<string>61C545DC120678D900047DE2</string>
 		<string>1CD10A99069EF8BA00B06720</string>
+		<string>619F14441205329200E42B1F</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/anton/code/personal/netusage/netusage.xcodeproj</string>
 	</array>
@@ -641,7 +643,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>619F14441205329200E42B1F</string>
-				<string>614B559F120545760070FDED</string>
+				<string>61C545C91206789F00047DE2</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -685,8 +687,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {496, 224}}</string>
-											<string>{{496, 0}, {593, 224}}</string>
+											<string>{{0, 0}, {497, 302}}</string>
+											<string>{{497, 0}, {592, 302}}</string>
 										</array>
 									</dict>
 									<key>VerticalSplitView</key>
@@ -701,8 +703,8 @@
 										<string>yes</string>
 										<key>sizes</key>
 										<array>
-											<string>{{0, 0}, {1089, 224}}</string>
-											<string>{{0, 224}, {1089, 387}}</string>
+											<string>{{0, 0}, {1089, 302}}</string>
+											<string>{{0, 302}, {1089, 309}}</string>
 										</array>
 									</dict>
 								</dict>
@@ -732,15 +734,15 @@
 										<string>Value</string>
 										<real>85</real>
 										<string>Summary</string>
-										<real>363</real>
+										<real>362</real>
 									</array>
 									<key>Frame</key>
-									<string>{{496, 0}, {593, 224}}</string>
+									<string>{{497, 0}, {592, 302}}</string>
 									<key>RubberWindowFrame</key>
-									<string>444 214 1089 652 0 0 1440 878 </string>
+									<string>351 214 1089 652 0 0 1440 878 </string>
 								</dict>
 								<key>RubberWindowFrame</key>
-								<string>444 214 1089 652 0 0 1440 878 </string>
+								<string>351 214 1089 652 0 0 1440 878 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugSessionModule</string>
@@ -763,22 +765,22 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>614B55A0120545760070FDED</string>
+				<string>61C545CA1206789F00047DE2</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>614B55A1120545760070FDED</string>
-				<string>614B55A2120545760070FDED</string>
-				<string>614B55A3120545760070FDED</string>
-				<string>614B55A4120545760070FDED</string>
-				<string>614B55A5120545760070FDED</string>
+				<string>61C545CB1206789F00047DE2</string>
+				<string>61C545CC1206789F00047DE2</string>
+				<string>61C545CD1206789F00047DE2</string>
+				<string>61C545CE1206789F00047DE2</string>
+				<string>61C545CF1206789F00047DE2</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
 			<key>WindowString</key>
-			<string>444 214 1089 652 0 0 1440 878 </string>
+			<string>351 214 1089 652 0 0 1440 878 </string>
 			<key>WindowToolGUID</key>
 			<string>1CD10A99069EF8BA00B06720</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -925,7 +927,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>614B55A6120545760070FDED</string>
+				<string>61C545D01206789F00047DE2</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
