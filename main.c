@@ -1,59 +1,150 @@
 #include <stdio.h>
-#include <sys/types.h>
-#include <sys/sysctl.h>
+#include <stdlib.h>
+#include <string.h>
 
+#include <rpc/rpc.h>
+#include <rpc/pmap_prot.h>
+#include <nfs/rpcv2.h>
 
-int anton_main (int argc, const char * argv[]) {
-	int i; //, mib[CTL_MAXNAME];
-	size_t len;
-	struct kinfo_proc kp;
+#include "lsof.h"
 
-	int mib[3];
+_PROTOTYPE(extern char *lkup_port,(int p, int pr, int src));
+_PROTOTYPE(static char *sv_fmt_str,(char *f));
+
+int main (int argc, const char * argv[]) {
+	// we want
+	struct lfile *lf;
+	struct lproc **slp = (struct lproc **)NULL;
+	int i, n;
+	int sp = 0;
+	MALLOC_S len;
+	char options[128];
 	
-	mib[0] = CTL_KERN;
-	mib[1] = KERN_PROCARGS; //KERN_PROC;
-	//name[2] = KERN_PROC_PID;
-	//name[3] = pid;
+	// gather_proc_info wants
+	Namech = (char *)malloc(MAXPATHLEN + 1);
+	Namechl = (size_t)(MAXPATHLEN + 1);
 	
+	// internet only, no convert
+	Fnet = 1;
+	FnetTy = 0;
+	Selall = 0;
+	Selflags |= SELNET;
+	Fsv &= (unsigned char)~FSV_NI;
+	//Selflags &= (unsigned char)~SELNA;
+	Fport = 0;
+	Fhost = 0;
 	
-	/* Fill out the first three components of the mib */
-	//len = 4;
-	//int size = sysctlnametomib("kern.proc.pid", mib, &len);
-	//printf("size: %i", size);
-	//perror("nametomib");
+	gather_proc_info();
 	
-	//return 0;
+	/*
+	 * Define the size and offset print formats.
+	 */
+  (void) snpf(options, sizeof(options), "%%%su", INODEPSPEC);
+  InodeFmt_d = sv_fmt_str(options);
+  (void) snpf(options, sizeof(options), "%%#%sx", INODEPSPEC);
+  InodeFmt_x = sv_fmt_str(options);
+  (void) snpf(options, sizeof(options), "0t%%%su", SZOFFPSPEC);
+  SzOffFmt_0t = sv_fmt_str(options);
+  (void) snpf(options, sizeof(options), "%%%su", SZOFFPSPEC);
+  SzOffFmt_d = sv_fmt_str(options);
+  (void) snpf(options, sizeof(options), "%%*%su", SZOFFPSPEC);
+  SzOffFmt_dv = sv_fmt_str(options);
+  (void) snpf(options, sizeof(options), "%%#%sx", SZOFFPSPEC);
+  SzOffFmt_x = sv_fmt_str(options);
 	
-	/* Fetch and print entries for pid's < 100 */
-	i = 5670;
-//	for (i = 1025; i < 4000; i++) {
-		mib[2] = i;
+	if (Nlproc > 1) {
+    if (Nlproc > sp) {
+			len = (MALLOC_S)(Nlproc * sizeof(struct lproc *));
+			sp = Nlproc;
+			if (!slp)
+				slp = (struct lproc **)malloc(len);
+			else
+				slp = (struct lproc **)realloc((MALLOC_P *)slp, len);
+			if (!slp) {
+				(void) fprintf(stderr,
+											 "%s: no space for %d sort pointers\n", Pn, Nlproc);
+				Exit(1);
+			}
+    }
+    for (i = 0; i < Nlproc; i++) {
+			slp[i] = &Lproc[i];
+    }
+    (void) qsort((QSORT_P *)slp, (size_t)Nlproc,
+								 (size_t)sizeof(struct lproc *), comppid);
+	}
+	
+	/*
+	 //for (lf = Lf, print_init(); PrPass < 2; PrPass++) {
+	 lf = Lf;
+	 print_init();
+	 PrPass = 1;
+	 for (i = n = 0; i < Nlproc; i++) {
+	 Lp = (Nlproc > 1) ? slp[i] : &Lproc[i];
+	 if (Lp->pss) {
+	 if (print_proc())
+	 n++;
+	 }
+	 if (RptTm && PrPass)
+	 (void) free_lproc(Lp);
+	 }
+	 //}
+	 */
+	for (i = 0; i < Nlproc; i++) {
+		//printf("\ngot pid: %i, %s  ", Lproc[i].pid, Lproc[i].cmd);
+		struct lfile *file = Lproc[i].file;
 		
-		len = sizeof(kp);
-		
-		int argv_len;
-		sysctl(mib, 3, NULL, &argv_len, NULL, 0);
-		char *proc_argv = malloc(sizeof(char) * argv_len);
-		//sysctl(mib, 3, proc_argv, &argv_len, NULL, 0);
-		
-		
-		
-		//if (sysctl(mib, 4, &kp, &len, NULL, 0) == -1) {
-		//if (sysctlbyname("kern.proc.pid", &kp, &len, NULL, 0) == -1) {
-		if (sysctl(mib, 3, proc_argv, &argv_len, NULL, 0) == -1) {
-			perror("sysctl");
+		while (file != NULL) {
+			//printf("file: %c", file->fsdev);
+			if (file->li[0].af && file->li[1].af) {
+				char *from = gethostnm((unsigned char *)&file->li[0].ia, file->li[0].af);
+				char *to = gethostnm((unsigned char *)&file->li[1].ia, file->li[1].af);
+				
+				int src = 0;
+				
+				char *port;
+				char *from_port, *to_port;
+				if (strcasecmp(file->iproto, "TCP") == 0) {
+					port = lkup_port(file->li[0].p, 0, src);
+					from_port = malloc(strlen(port));
+					strcpy(from_port, port);
+					
+					port = lkup_port(file->li[1].p, 0, src);
+					to_port = malloc(strlen(port));
+					strcpy(to_port, port);
+				}
+		    else if (strcasecmp(Lf->iproto, "UDP") == 0) {
+					port = lkup_port(file->li[0].p, 1, src);
+					from_port = malloc(strlen(port));
+					strcpy(from_port, port);
+					
+					port = lkup_port(file->li[1].p, 1, src);
+					to_port = malloc(strlen(port));
+					strcpy(to_port, port);
+				}
+				
+				printf("%s %s:%s -> %s:%s %s\n", Lproc[i].cmd, from, from_port, to, to_port, file->iproto);
+			}
+			file = file->next;
 		}
-		else if (len > 0) {
-			//printkproc(&kp);
-//			printf("%s", kp.kp_eproc.e_wmesg);
-			printf("progrv: %s\n", proc_argv);			
-			//printf("%s", kp.kp_proc.p_pid);
-			//printf("\n");
-		}
-//	}	
+	}
 	
-	
-	
-	printf("Hello, World!\n");
 	return 0;
 }
+
+static char *
+sv_fmt_str(f)
+char *f;      /* format string */
+{
+  char *cp;
+  MALLOC_S l;
+	
+  l = (MALLOC_S)(strlen(f) + 1);
+  if (!(cp = (char *)malloc(l))) {
+		(void) fprintf(stderr,
+									 "%s: can't allocate %d bytes for format: %s\n", Pn, (int)l, f);
+		Exit(1);
+  }
+  (void) snpf(cp, l, "%s", f);
+  return(cp);
+}
+
