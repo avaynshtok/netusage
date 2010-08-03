@@ -11,7 +11,7 @@
 _PROTOTYPE(extern char *lkup_port,(int p, int pr, int src));
 _PROTOTYPE(static char *sv_fmt_str,(char *f));
 
-int main (int argc, const char * argv[]) {
+int anton_main (int argc, const char * argv[]) {
 	// we want
 	struct lfile *lf;
 	struct lproc **slp = (struct lproc **)NULL;
@@ -73,22 +73,6 @@ int main (int argc, const char * argv[]) {
 								 (size_t)sizeof(struct lproc *), comppid);
 	}
 	
-	/*
-	 //for (lf = Lf, print_init(); PrPass < 2; PrPass++) {
-	 lf = Lf;
-	 print_init();
-	 PrPass = 1;
-	 for (i = n = 0; i < Nlproc; i++) {
-	 Lp = (Nlproc > 1) ? slp[i] : &Lproc[i];
-	 if (Lp->pss) {
-	 if (print_proc())
-	 n++;
-	 }
-	 if (RptTm && PrPass)
-	 (void) free_lproc(Lp);
-	 }
-	 //}
-	 */
 	for (i = 0; i < Nlproc; i++) {
 		//printf("\ngot pid: %i, %s  ", Lproc[i].pid, Lproc[i].cmd);
 		struct lfile *file = Lproc[i].file;

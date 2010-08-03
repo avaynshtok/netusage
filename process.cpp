@@ -17,6 +17,10 @@
 #include "inode2prog.h" 
 #include "conninode.h"
 
+extern "C" {
+  #include "lsof.h"
+}
+
 extern local_addr * local_addrs;
 
 /* 
@@ -25,6 +29,9 @@ extern local_addr * local_addrs;
  * port in format: '1.2.3.4:5-1.2.3.4:5'
  */
 extern std::map <std::string, unsigned long> conninode;
+
+
+std::map <std::string, int> conn_to_proc;
 
 
 /* this file includes:
@@ -74,6 +81,7 @@ int Process::getLastPacket()
 	return lastpacket;
 }
 
+/*
 Process * findProcess (struct prg_node * node)
 {
 	ProcList * current = processes;
@@ -88,10 +96,12 @@ Process * findProcess (struct prg_node * node)
 	}
 	return NULL;
 }
+ */
 
 /* finds process based on inode, if any */
 /* should be done quickly after arrival of the packet, 
  * otherwise findPID will be outdated */
+/*
 Process * findProcess (unsigned long inode)
 {
 	struct prg_node * node = findPID(inode);
@@ -101,13 +111,14 @@ Process * findProcess (unsigned long inode)
 
 	return findProcess (node);
 }
-
+*/
 /* check if we have identified any previously unknown
  * connections are now known 
  *
  * When this is the case, something weird is going on.
  * This function is only called in bughunt-mode
  */
+/*
 void reviewUnknown ()
 {
 	ConnList * curr_conn = unknowntcp->connections;
@@ -122,10 +133,10 @@ void reviewUnknown ()
 			{
 				if (DEBUG || bughuntmode)
 					std::cout << "FIXME: Previously unknown inode " << inode << " now got process - apparently it makes sense to review unknown connections\n";
-				/* Yay! - but how can this happen? */
+				// Yay! - but how can this happen?
 				assert(false);
 
-				/* TODO: this needs some investigation/refactoring - we should never get here due to assert(false) */
+				// TODO: this needs some investigation/refactoring - we should never get here due to assert(false)
 
 				if (previous_conn != NULL)
 				{
@@ -148,6 +159,7 @@ void reviewUnknown ()
 			curr_conn = curr_conn->getNext();
 	}
 }
+*/
 
 int ProcList::size ()
 {
@@ -170,62 +182,6 @@ void check_all_procs ()
 }
 
 /* 
- * returns the process from proclist with matching pid
- * if the inode is not associated with any PID, return the unknown process
- * if the process is not yet in the proclist, add it
- */
-Process * getProcess (unsigned long inode, char * devicename)
-{
-	struct prg_node * node = findPID(inode);
-	
-	if (node == NULL)
-	{
-		if (DEBUG || bughuntmode)
-			std::cout << "No PID information for inode " << inode << std::endl;
-		return unknowntcp;
-	}
-
-	Process * proc = findProcess (node);
-
-	if (proc != NULL)
-		return proc;
-
-	Process * newproc = new Process (inode, devicename);
-	newproc->name = strdup(node->name);
-	newproc->pid = node->pid;
-
-	char procdir [100];
-	sprintf(procdir , "/proc/%d", node->pid);
-	struct stat stats;
-	int retval = stat(procdir, &stats);
-
-	/* 0 seems a proper default. 
-	 * used in case the PID disappeared while nethogs was running
-	 * TODO we can store node->uid this while info on the inodes,
-	 * right? */
-	/*
-	if (!ROBUST && (retval != 0))
-	{
-		std::cerr << "Couldn't stat " << procdir << std::endl;
-		assert (false);
-	}
-	*/
-
-	if (retval != 0)
-		newproc->setUid(0);
-	else
-		newproc->setUid(stats.st_uid);
-
-	/*if (getpwuid(stats.st_uid) == NULL) {
-		std::stderr << "uid for inode 
-		if (!ROBUST)
-			assert(false);
-	}*/
-	processes = new ProcList (newproc, processes);
-	return newproc;
-}
-
-/* 
  * Used when a new connection is encountered. Finds corresponding
  * process and adds the connection. If the connection  doesn't belong
  * to any known process, the process list is updated and a new process
@@ -234,91 +190,146 @@ Process * getProcess (unsigned long inode, char * devicename)
  */
 Process * getProcess (Connection * connection, char * devicename)
 {
-	unsigned long inode = conninode[connection->refpacket->gethashstring()];
-
+	//unsigned long inode = conninode[connection->refpacket->gethashstring()];
 	char *hash = connection->refpacket->gethashstring();
-	printf("hash: %s", hash);
+	printf("hash: %s\n", hash);
+	
+	int pid = conn_to_proc[hash];
+	printf("pid: %i\n\n", pid);
+	
 	fflush(stdout);
+
+	updateProcList();
 	
-	return new Process (0, "", connection->refpacket->gethashstring());
-	
-	if (inode == 0)
-	{
-		// no? refresh and check conn/inode table
-		if (bughuntmode)
-		{
-			std::cout << "?  new connection not in connection-to-inode table before refresh.\n"; 
-		}
-		// refresh the inode->pid table first. Presumably processing the renewed connection->inode table 
-		// is slow, making this worthwhile.
-		// We take the fact for granted that we might already know the inode->pid (unlikely anyway if we 
-		// haven't seen the connection->inode yet though).
-		reread_mapping();
-		refreshconninode();
-		inode = conninode[connection->refpacket->gethashstring()];
-		if (bughuntmode)
-		{
-			if (inode == 0)
-			{
-				std::cout << ":( inode for connection not found after refresh.\n"; 
-			}
-			else
-			{
-				std::cout << ":) inode for connection found after refresh.\n"; 
-			}
-		}
-#if REVERSEHACK
-		if (inode == 0)
-		{
-			/* HACK: the following is a hack for cases where the 
-			 * 'local' addresses aren't properly recognised, as is 
-			 * currently the case for IPv6 */
-
-		 	/* we reverse the direction of the stream if 
-			 * successful. */
-			Packet * reversepacket = connection->refpacket->newInverted();
-			inode = conninode[reversepacket->gethashstring()];
-
-			if (inode == 0)
-			{
-				delete reversepacket;
-				if (bughuntmode || DEBUG)
-					std::cout << "LOC: " << connection->refpacket->gethashstring() << " STILL not in connection-to-inode table - adding to the unknown process\n";
-				unknowntcp->connections = new ConnList (connection, unknowntcp->connections);
-				return unknowntcp;
-			}
-
-			delete connection->refpacket;
-			connection->refpacket = reversepacket;
-		}
-#endif
-	}
-	else if (bughuntmode)
-	{
-		std::cout << ";) new connection in connection-to-inode table before refresh.\n";
-	}
-
-	if (bughuntmode)
-	{
-		std::cout << "   inode # " << inode << std::endl;
-	}
-
-	Process * proc;
-	if (inode == 0) {
-		proc = new Process (0, "", connection->refpacket->gethashstring());
-		processes = new ProcList (proc, processes);
-	} 
-	else
-	{
-		proc = getProcess(inode, devicename);
-	}
-
-	proc->connections = new ConnList (connection, proc->connections);
-	return proc;
+	return unknowntcp;
+	//proc->connections = new ConnList (connection, proc->connections);
+	//return proc;
 }
+
+void updateProcList() {
+	// we want
+	struct lfile *lf;
+	struct lproc **slp = (struct lproc **)NULL;
+	int i, n;
+	int sp = 0;
+	MALLOC_S len;
+	char options[128];
+	
+	// gather_proc_info wants
+	Namech = (char *)malloc(MAXPATHLEN + 1);
+	Namechl = (size_t)(MAXPATHLEN + 1);
+	
+	// internet only, no convert
+	Fnet = 1;
+	FnetTy = 0;
+	Selall = 0;
+	Selflags |= SELNET;
+	Fsv &= (unsigned char)~FSV_NI;
+	//Selflags &= (unsigned char)~SELNA;
+	Fport = 0;
+	Fhost = 0;
+	
+	gather_proc_info();
+	
+	/*
+	 * Define the size and offset print formats.
+	 */
+	(void) snpf(options, sizeof(options), "%%%su", INODEPSPEC);
+	InodeFmt_d = sv_fmt_str(options);
+	(void) snpf(options, sizeof(options), "%%#%sx", INODEPSPEC);
+	InodeFmt_x = sv_fmt_str(options);
+	(void) snpf(options, sizeof(options), "0t%%%su", SZOFFPSPEC);
+	SzOffFmt_0t = sv_fmt_str(options);
+	(void) snpf(options, sizeof(options), "%%%su", SZOFFPSPEC);
+	SzOffFmt_d = sv_fmt_str(options);
+	(void) snpf(options, sizeof(options), "%%*%su", SZOFFPSPEC);
+	SzOffFmt_dv = sv_fmt_str(options);
+	(void) snpf(options, sizeof(options), "%%#%sx", SZOFFPSPEC);
+	SzOffFmt_x = sv_fmt_str(options);
+	
+	if (Nlproc > 1) {
+		if (Nlproc > sp) {
+			len = (MALLOC_S)(Nlproc * sizeof(struct lproc *));
+			sp = Nlproc;
+			if (!slp)
+				slp = (struct lproc **)malloc(len);
+				else
+					slp = (struct lproc **)realloc((MALLOC_P *)slp, len);
+					if (!slp) {
+						(void) fprintf(stderr,
+									   "%s: no space for %d sort pointers\n", Pn, Nlproc);
+						//Exit(1);
+					}
+		}
+		for (i = 0; i < Nlproc; i++) {
+			slp[i] = &Lproc[i];
+		}
+		(void) qsort((QSORT_P *)slp, (size_t)Nlproc,
+					 (size_t)sizeof(struct lproc *), comppid);
+	}
+	
+	for (i = 0; i < Nlproc; i++) {
+		//printf("\ngot pid: %i, %s  ", Lproc[i].pid, Lproc[i].cmd);
+		struct lfile *file = Lproc[i].file;
+		
+		while (file != NULL) {
+			//printf("file: %c", file->fsdev);
+			if (file->li[0].af && file->li[1].af) {
+				char *from = gethostnm((unsigned char *)&file->li[0].ia, file->li[0].af);
+				char *to = gethostnm((unsigned char *)&file->li[1].ia, file->li[1].af);
+				
+				int src = 0;
+				
+				char *port;
+				char *from_port, *to_port;
+				if (strcasecmp(file->iproto, "TCP") == 0) {
+					port = lkup_port(file->li[0].p, 0, src);
+					from_port = (char *)malloc(strlen(port));
+					strcpy(from_port, port);
+					
+					port = lkup_port(file->li[1].p, 0, src);
+					to_port = (char *)malloc(strlen(port));
+					strcpy(to_port, port);
+				}
+				else if (strcasecmp(Lf->iproto, "UDP") == 0) {
+					port = lkup_port(file->li[0].p, 1, src);
+					from_port = (char *)malloc(strlen(port));
+					strcpy(from_port, port);
+					
+					port = lkup_port(file->li[1].p, 1, src);
+					to_port = (char *)malloc(strlen(port));
+					strcpy(to_port, port);
+				}
+				
+				// <from>:port-<to>:port
+				char *hash = (char *)malloc(strlen(from) + strlen(to) + strlen(from_port) + strlen(to_port) + 3 + 1);
+				sprintf(hash, "%s:%s-%s:%s", from, from_port, to, to_port);
+				
+				conn_to_proc[hash] = Lproc[i].pid;
+				//printf("%s %s:%s -> %s:%s %s\n", Lproc[i].cmd, from, from_port, to, to_port, file->iproto);
+			}
+			file = file->next;
+		}
+	}
+}
+
 
 void procclean ()
 {
 	//delete conninode;
 	prg_cache_clear();
+}
+
+static char *sv_fmt_str(char *f) {
+	char *cp;
+	MALLOC_S l;
+	
+	l = (MALLOC_S)(strlen(f) + 1);
+	if (!(cp = (char *)malloc(l))) {
+		(void) fprintf(stderr,
+					   "%s: can't allocate %d bytes for format: %s\n", Pn, (int)l, f);
+		//Exit(1);
+	}
+	(void) snpf(cp, l, "%s", f);
+	return(cp);
 }

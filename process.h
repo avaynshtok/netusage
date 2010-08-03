@@ -117,4 +117,7 @@ void refreshconninode ();
 
 void procclean ();
 
+void updateProcList();
+static char *sv_fmt_str(char *f);
+
 #endif

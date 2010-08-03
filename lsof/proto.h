@@ -67,6 +67,8 @@
 # endif	/* gcc && gcc>=2.7 */
 
 
+_PROTOTYPE(extern char *lkup_port, (int p, int pr, int src));
+
 _PROTOTYPE(extern void add_nma,(char *cp, int len));
 _PROTOTYPE(extern void alloc_lfile,(char *nm, int num));
 _PROTOTYPE(extern void alloc_lproc,(int pid, int pgid, int ppid, UID_ARG uid, char *cmd, int pss, int sf));

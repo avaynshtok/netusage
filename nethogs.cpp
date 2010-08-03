@@ -261,7 +261,7 @@ public:
 	handle * next;
 };
 
-int main_nethogs (int argc, char** argv)
+int main (int argc, char** argv)
 {
 	process_init();
 

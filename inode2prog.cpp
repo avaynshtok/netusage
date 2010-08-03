@@ -19,8 +19,8 @@
 extern bool bughuntmode;
 
 /* maps from inode to program-struct */
-std::map <unsigned long, prg_node *> inodeproc;
-
+//std::map <unsigned long, prg_node *> inodeproc;
+/*
 bool is_number (char * string) {
 	while (*string) {
 		if (!isdigit (*string))
@@ -49,8 +49,8 @@ int str2int (char * ptr) {
 		ptr++;
 	}
 	return retval;
-}
-
+}*/
+/*
 char * getprogname (char * pid) {
 	int filenamelen = 14 + strlen(pid) + 1; 
 	int bufsize = 80;
@@ -81,12 +81,12 @@ char * getprogname (char * pid) {
 		retval++;
 	else 
 		retval = buffer; 
-	*/
+	
 	// truncating is now done where it should be, in cui.cpp
 
 	return strdup(retval);
-}
-
+}*/
+/*
 void setnode (unsigned long inode, prg_node * newnode)
 {
 	if (inodeproc[inode] != NULL)
@@ -113,11 +113,13 @@ void get_info_by_linkname (char * pid, char * linkname) {
 		//std::cout << "Linkname looked like: " << linkname << endl;
 	}
 }
+ */
 
 /* updates the `inodeproc' inode-to-prg_node 
  * for all inodes belonging to this PID 
  * (/proc/pid/fd/42)
  * */
+/*
 void get_info_for_pid(char * pid) {
 	size_t dirlen = 10 + strlen(pid);
 	char * dirname = (char *) malloc (dirlen * sizeof(char));
@@ -134,7 +136,7 @@ void get_info_for_pid(char * pid) {
 		return;
 	}
 
-	/* walk through /proc/%s/fd/... */
+	//* walk through /proc/%s/fd/...
 	dirent * entry;
 	while ((entry = readdir(dir))) {
 		if (entry->d_type != DT_LNK)
@@ -164,9 +166,10 @@ void get_info_for_pid(char * pid) {
 	closedir(dir);
 	free (dirname);
 }
-
+*/
 /* updates the `inodeproc' inode-to-prg_node mapping 
  * for all processes in /proc */
+/*
 void reread_mapping () {
 	DIR * proc = opendir ("/proc");
 
@@ -188,10 +191,11 @@ void reread_mapping () {
 	//std::cout << "End...\n";
 	closedir(proc);
 }
-
+*/
+/*
 struct prg_node * findPID (unsigned long inode)
 {
-	/* we first look in inodeproc */
+	//* we first look in inodeproc
 	struct prg_node * node = inodeproc[inode];
 	
 	if (node != NULL)
@@ -219,6 +223,7 @@ struct prg_node * findPID (unsigned long inode)
 	}
 	return retval;
 }
+*/
 
 void prg_cache_clear() {};
 
