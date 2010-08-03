@@ -172,6 +172,12 @@
 		vrLoc = 16898;
 	};
 	3AD816F2120674120010A5A0 /* lsof.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = lsof.h;
+		path = /Users/anton/code/personal/netusage/lsof.h;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1007, 11765}}";
 			sepNavSelRange = "{4472, 0}";
@@ -179,8 +185,14 @@
 		};
 	};
 	3AD816F3120674120010A5A0 /* lsof.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = lsof.cpp;
+		path = /Users/anton/code/personal/netusage/lsof.cpp;
+		sourceTree = "<absolute>";
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1007, 936}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1007, 923}}";
 			sepNavSelRange = "{896, 7}";
 			sepNavVisRange = "{671, 712}";
 		};
@@ -270,6 +282,12 @@
 		};
 	};
 	614B58421205F6170070FDED /* netstat.h */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.c.h;
+		name = netstat.h;
+		path = /Users/anton/code/personal/netusage/netstat.h;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1007, 1937}}";
 			sepNavSelRange = "{0, 0}";
@@ -277,6 +295,12 @@
 		};
 	};
 	614B58431205F6170070FDED /* netstat.cpp */ = {
+		isa = PBXFileReference;
+		fileEncoding = 4;
+		lastKnownFileType = sourcecode.cpp.cpp;
+		name = netstat.cpp;
+		path = /Users/anton/code/personal/netusage/netstat.cpp;
+		sourceTree = "<absolute>";
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1007, 2223}}";
 			sepNavSelRange = "{2534, 44}";
