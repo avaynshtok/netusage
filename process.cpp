@@ -14,7 +14,6 @@
 #include "process.h"
 #include "nethogs.h"
 /* #include "inodeproc.cpp" */
-#include "inode2prog.h" 
 #include "conninode.h"
 
 extern "C" {
@@ -363,7 +362,6 @@ void dumpConnToProc() {
 void procclean ()
 {
 	//delete conninode;
-	prg_cache_clear();
 }
 
 static char *sv_fmt_str(char *f) {
