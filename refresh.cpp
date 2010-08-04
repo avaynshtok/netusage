@@ -11,7 +11,6 @@ void alarm_cb (int i)
 	needrefresh = true;
 	std::cout << "Setting needrefresh\n";
 
-    signal (SIGALRM, &alarm_cb);
-//    alarm(refreshdelay);
+	setup_refresh();
 }
 

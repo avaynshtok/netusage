@@ -105,5 +105,6 @@ private:
 };
 
 void quit_cb (int i);
+void setup_refresh();
 
 #endif

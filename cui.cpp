@@ -445,10 +445,12 @@ void do_refresh()
 			curr_unknownconn = curr_unknownconn->getNext();
 		}
 	}
+	
+	time_t seconds = time(NULL);
 
 	if ((!tracemode) && (!DEBUG)){
 		attron(A_REVERSE);
-		mvprintw (3+1+i, 0, "  TOTAL                                           %10.3f  %10.3f ", sent_global, recv_global);
+		mvprintw (3+1+i, 0, "  TOTAL                %i                    %10.3f  %10.3f %i", seconds, sent_global, recv_global);
 		if (viewMode == VIEWMODE_KBPS)
 		{
 			mvprintw (3+1+i, 73, "KB/sec ");

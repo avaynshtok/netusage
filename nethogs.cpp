@@ -33,7 +33,6 @@ extern "C" {
 extern Process * unknownudp;
 
 unsigned refreshdelay = 1;
-struct itimerval refresh_timer_val;
 bool tracemode = false;
 bool bughuntmode = false;
 bool needrefresh = true;
@@ -136,6 +135,8 @@ int process_tcp (u_char * userdata, const dp_header * header, const u_char * m_p
 	
 	fflush(stdout);
 
+	setup_refresh();
+	
 	/* we're done now. */
 	return true;
 }
@@ -180,6 +181,8 @@ int process_udp (u_char * userdata, const dp_header * header, const u_char * m_p
 		do_refresh();
 		needrefresh = false;
 	}
+
+	setup_refresh();
 
 	/* we're done now. */
 	return true;
@@ -375,18 +378,10 @@ int main (int argc, char** argv)
 
 		current_dev = current_dev->next;
 	}
-
-	refresh_timer_val.it_interval.tv_sec = refreshdelay;
-	refresh_timer_val.it_interval.tv_usec = 0;
-	refresh_timer_val.it_value.tv_sec = refreshdelay;
-	refresh_timer_val.it_value.tv_usec = 0;
 		
-	signal (SIGALRM, &alarm_cb);
 	signal (SIGINT, &quit_cb);
 	
-	if(setitimer(ITIMER_REAL, &refresh_timer_val, NULL) != 0) {
-		perror("setitimer");
-	}
+	setup_refresh();
 	
 	fprintf(stderr, "Waiting for first packet to arrive (see sourceforge.net bug 1019381)\n");
 
@@ -435,7 +430,10 @@ int main (int argc, char** argv)
 		{
 			usleep(100);
 		}
-		
 	}
 }
 
+void setup_refresh() {
+	signal (SIGALRM, &alarm_cb);
+	alarm(refreshdelay);	
+}
