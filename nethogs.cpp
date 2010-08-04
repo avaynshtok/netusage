@@ -32,6 +32,7 @@ extern "C" {
 
 extern Process * unknownudp;
 
+struct itimerval refresh_timer_val;
 unsigned refreshdelay = 1;
 bool tracemode = false;
 bool bughuntmode = false;
@@ -42,7 +43,7 @@ const char version[] = "cool version"; //{" version ", V, ".", SV, ".", MV};
 
 char * currentdevice = NULL;
 
-timeval curtime;
+//timeval curtime;
 
 bool local_addr::contains (const in_addr_t & n_addr) {
 	if ((sa_family == AF_INET)
@@ -91,7 +92,7 @@ int process_tcp (u_char * userdata, const dp_header * header, const u_char * m_p
 	struct dpargs * args = (struct dpargs *) userdata;
 	struct tcphdr * tcp = (struct tcphdr *) m_packet;
 
-	curtime = header->ts;
+	// curtime = header->ts;
 
 	/* get info from userdata, then call getPacket */
 	Packet * packet;
@@ -146,7 +147,7 @@ int process_udp (u_char * userdata, const dp_header * header, const u_char * m_p
 	//struct tcphdr * tcp = (struct tcphdr *) m_packet;
 	struct udphdr * udp = (struct udphdr *) m_packet;
 
-	curtime = header->ts;
+//	curtime = header->ts;
 
 	/* TODO get info from userdata, then call getPacket */
 	Packet * packet;
@@ -181,6 +182,8 @@ int process_udp (u_char * userdata, const dp_header * header, const u_char * m_p
 		do_refresh();
 		needrefresh = false;
 	}
+	
+	fflush(stdout);
 
 	setup_refresh();
 
@@ -429,11 +432,26 @@ int main (int argc, char** argv)
 		if (!packets_read)
 		{
 			usleep(100);
-		}
+		}		
 	}
 }
 
 void setup_refresh() {
-	signal (SIGALRM, &alarm_cb);
-	alarm(refreshdelay);	
+	refresh_timer_val.it_interval.tv_sec = refreshdelay;
+	refresh_timer_val.it_interval.tv_usec = 0;
+	refresh_timer_val.it_value.tv_sec = refreshdelay;
+	refresh_timer_val.it_value.tv_usec = 0;
+	
+	struct itimerval curval;
+	if (getitimer(ITIMER_REAL, &curval) != 0) {
+		perror("getitimerval");
+	}
+	
+	if (curval.it_value.tv_usec == 0 && curval.it_value.tv_sec == 0) {
+		signal (SIGALRM, &alarm_cb);
+		if(setitimer(ITIMER_REAL, &refresh_timer_val, NULL) != 0) {
+			perror("setitimer");
+		}
+	}
+	
 }

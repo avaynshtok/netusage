@@ -36,7 +36,7 @@ void PackList::add (Packet * p)
 }
 
 /* sums up the total bytes used and removes 'old' packets */
-u_int32_t PackList::sumanddel (timeval t)
+u_int32_t PackList::sumanddel (time_t t)
 {
 	u_int32_t retval = 0;
 	PackListNode * current = content;
@@ -45,7 +45,7 @@ u_int32_t PackList::sumanddel (timeval t)
 	while (current != NULL) 
 	{
 		//std::cout << "Comparing " << current->val->time.tv_sec << " <= " << t.tv_sec - PERIOD << endl;
-		if (current->val->time.tv_sec <= t.tv_sec - PERIOD)
+		if (current->val->time.tv_sec <= t - PERIOD)
 		{
 			if (current == content)
 				content = NULL;
@@ -201,7 +201,7 @@ Connection * findConnection (Packet * packet)
  * Returns sum of sent packages (by address)
  *	   sum of recieved packages (by address)
  */
-void Connection::sumanddel (timeval t, u_int32_t * recv, u_int32_t * sent)
+void Connection::sumanddel (time_t t, u_int32_t * recv, u_int32_t * sent)
 {
     (*sent)=(*recv)=0;
 

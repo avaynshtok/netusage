@@ -5,6 +5,7 @@
 #include <string>
 #include <pwd.h>
 #include <sys/types.h>
+#include <sys/time.h>
 #include <stdlib.h>
 #include <cstdlib>
 #include <algorithm>
@@ -19,7 +20,7 @@ std::string * caption;
 //extern char [] version;
 const char version[] = "cool version"; //" version " VERSION "." SUBVERSION "." MINORVERSION;
 extern ProcList * processes;
-extern timeval curtime;
+time_t curtime;
 
 extern Process * unknowntcp;
 extern Process * unknownudp;
@@ -104,7 +105,7 @@ void Line::show (int row)
 	} else {
 		mvprintw (3+row, 6 + 9, "%s", m_name);
 	}
-	mvprintw (3+row, 6 + 9 + PROGNAME_WIDTH + 2, "%s", devicename);
+	mvprintw (3+row, 6 + 9 + PROGNAME_WIDTH + 2, "%s", "");
 	mvprintw (3+row, 6 + 9 + PROGNAME_WIDTH + 2 + 6, "%10.3f", sent_value);
 	mvprintw (3+row, 6 + 9 + PROGNAME_WIDTH + 2 + 6 + 9 + 3, "%10.3f", recv_value);
 	if (viewMode == VIEWMODE_KBPS)
@@ -228,7 +229,7 @@ void getkbps (Process * curproc, float * recvd, float * sent)
 	ConnList * previous = NULL;
 	while (curconn != NULL)
 	{
-		if (curconn->getVal()->getLastPacket() <= curtime.tv_sec - CONNTIMEOUT)
+		if (curconn->getVal()->getLastPacket() <= curtime - CONNTIMEOUT)
 		{
 			/* stalled connection, remove. */
 			ConnList * todelete = curconn;
@@ -306,6 +307,8 @@ void gettotalb(Process * curproc, float * recvd, float * sent)
 // Display all processes and relevant network traffic using show function
 void do_refresh()
 {
+	curtime = time(NULL);
+	
 	//refreshconninode();
 	if (DEBUG || tracemode)
 	{
@@ -336,6 +339,11 @@ void do_refresh()
 
 	while (curproc != NULL)
 	{
+		int lastPacket = curproc->getVal()->getLastPacket();
+		int age = curtime - lastPacket;
+		
+		//std::cout << "checking out: " << curproc->getVal()->name << " age: " << age << "\n";
+		
 		// walk though its connections, summing up their data, and
 		// throwing away connections that haven't received a package
 		// in the last PROCESSTIMEOUT seconds.
@@ -344,16 +352,17 @@ void do_refresh()
 		assert (nproc == processes->size());
 
 		/* remove timed-out processes (unless it's one of the the unknown process) */
-		if ((false && curproc->getVal()->getLastPacket() + PROCESSTIMEOUT <= curtime.tv_sec)
+		if ((curproc->getVal()->getLastPacket() + PROCESSTIMEOUT <= curtime)
 				&& (curproc->getVal() != unknowntcp)
 				&& (curproc->getVal() != unknownudp)
 				&& (curproc->getVal() != unknownip))
 		{
-			/*
-			if (DEBUG)
-				std::cout << "PROC: Deleting process\n";
+			
 			ProcList * todelete = curproc;
 			Process * p_todelete = curproc->getVal();
+			//if (DEBUG)
+				std::cout << "PROC: Deleting process " << p_todelete->name << "\n";
+			
 			if (previousproc)
 			{
 				previousproc->next = curproc->next;
@@ -366,7 +375,7 @@ void do_refresh()
 			delete p_todelete;
 			nproc--;
 			//continue;
-			 */
+			
 		}
 		else
 		{
@@ -450,7 +459,7 @@ void do_refresh()
 
 	if ((!tracemode) && (!DEBUG)){
 		attron(A_REVERSE);
-		mvprintw (3+1+i, 0, "  TOTAL                %i                    %10.3f  %10.3f %i", seconds, sent_global, recv_global);
+		mvprintw (3+1+i, 0, "  TOTAL                %i                  %10.3f  %10.3f", seconds, sent_global, recv_global);
 		if (viewMode == VIEWMODE_KBPS)
 		{
 			mvprintw (3+1+i, 73, "KB/sec ");

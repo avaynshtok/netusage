@@ -66,13 +66,8 @@ public:
 		assert (pid >= 0);
 	}
 	
-	~Process ()
-	{
-		free (name);
-		free (devicename);
-		if (DEBUG)
-			std::cout << "PROC: Process deleted at " << this << std::endl;
-	}
+	~Process();
+
 	int getLastPacket ();
 
 	char * name;

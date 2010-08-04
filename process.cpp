@@ -11,6 +11,8 @@
 #include <pwd.h>
 #include <map>
 
+#include <vector.h>
+
 #include "process.h"
 #include "nethogs.h"
 
@@ -154,6 +156,49 @@ Process * getProcess (Connection * connection, char * devicename)
 	//return proc;
 }
 
+Process::~Process()	{
+	//free (devicename);
+
+	//std::cout << "PROC: deleting " << name << " ";
+	//printf("%08X\n", this);
+
+	// remove myself from important hashes
+	//std::cout << "before" << std::endl;
+	//dumpConnToProc();
+	
+	pid_to_proc.erase(pid);
+	
+	std::vector<std::string> to_delete;// = std::vector<std::string>
+	
+	for(std::map<std::string, Process*>::iterator it = conn_to_proc.begin(); it != conn_to_proc.end(); ++it) {
+		if (it->second == this) {
+			//std::cout << it->first << " points to me\n";
+			to_delete.push_back(it->first);
+		}
+	}
+	
+	for (int i = 0; i < to_delete.size(); i++) {
+		conn_to_proc.erase(to_delete[i]);
+	}
+		
+	//std::cout << " after: " << std::endl;
+	//dumpConnToProc();
+	
+	//if (DEBUG)
+	free (name);
+}
+
+int concount(ConnList *connections) {
+	int n = 0;
+	ConnList *cl = connections;
+	while (cl != NULL) {
+		n++;
+		cl = cl->getNext();
+	}
+	return n;
+}
+		
+
 void updateProcList() {
 	// we want
 	//struct lfile *lf;
@@ -279,7 +324,7 @@ void updateProcList() {
 		}
 	}
 	
-	needrefresh = true;
+//	needrefresh = true;
 }
 
 void dumpConnToProc() {
