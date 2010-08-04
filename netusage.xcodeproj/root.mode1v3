@@ -229,8 +229,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -309,6 +307,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -326,7 +326,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>61877ED51209619800ED783A</string>
+										<string>61877F18120967DE00ED783A</string>
 										<key>history</key>
 										<array>
 											<string>614B56FF120559BA0070FDED</string>
@@ -348,9 +348,7 @@
 											<string>6167D2201208BEFC00EDC657</string>
 											<string>6167D2A81208CB5100EDC657</string>
 											<string>6167D2C41208CC9A00EDC657</string>
-											<string>6167D380120930D900EDC657</string>
 											<string>6167D3E012093B4000EDC657</string>
-											<string>6167D4791209491A00EDC657</string>
 											<string>61877E4012094DA100ED783A</string>
 											<string>61877E4812094E0600ED783A</string>
 											<string>61877E50120951EC00ED783A</string>
@@ -359,14 +357,17 @@
 											<string>61877E6C12095B8A00ED783A</string>
 											<string>61877E6D12095B8A00ED783A</string>
 											<string>61877E6E12095B8A00ED783A</string>
-											<string>61877E8912095C9100ED783A</string>
 											<string>61877EB112095E8900ED783A</string>
 											<string>61877EB212095E8900ED783A</string>
-											<string>61877EB312095E8900ED783A</string>
 											<string>61877EBF120960DF00ED783A</string>
 											<string>61877EC1120960DF00ED783A</string>
-											<string>61877ED31209619800ED783A</string>
-											<string>61877ED41209619800ED783A</string>
+											<string>61877ED9120962F200ED783A</string>
+											<string>61877EDA120962F200ED783A</string>
+											<string>61877EDB120962F200ED783A</string>
+											<string>61877F03120966F200ED783A</string>
+											<string>61877F05120966F200ED783A</string>
+											<string>61877F06120966F200ED783A</string>
+											<string>61877F07120966F200ED783A</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -564,13 +565,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>61877ED61209619800ED783A</string>
 		<string>61877E4412094DA100ED783A</string>
 		<string>61877E4512094DA100ED783A</string>
-		<string>619F14441205329200E42B1F</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/anton/code/personal/netusage/netusage.xcodeproj</string>
+		<string>619F14441205329200E42B1F</string>
 	</array>
 	<key>WindowString</key>
 	<string>160 108 1271 757 0 0 1440 878 </string>
@@ -596,7 +596,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>process.cpp</string>
+								<string>nethogs.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -665,7 +665,7 @@
 			<key>WindowToolGUID</key>
 			<string>619F14441205329200E42B1F</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>

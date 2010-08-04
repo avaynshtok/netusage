@@ -25,11 +25,10 @@ extern local_addr * local_addrs;
  * key contains source ip, source port, destination ip, destination 
  * port in format: '1.2.3.4:5-1.2.3.4:5'
  */
-//extern std::map <std::string, unsigned long> conninode;
+std::map <std::string, Process *> conn_to_proc;
 
 extern bool needrefresh;
 std::map <int, Process *> pid_to_proc;
-std::map <std::string, Process *> conn_to_proc;
 
 
 /* this file includes:
@@ -96,69 +95,6 @@ Process * listProcs()
 	}
 	return NULL;
 }
-
-/* finds process based on inode, if any */
-/* should be done quickly after arrival of the packet, 
- * otherwise findPID will be outdated */
-/*
-Process * findProcess (unsigned long inode)
-{
-	struct prg_node * node = findPID(inode);
-
-	if (node == NULL)
-		return NULL;
-
-	return findProcess (node);
-}
-*/
-/* check if we have identified any previously unknown
- * connections are now known 
- *
- * When this is the case, something weird is going on.
- * This function is only called in bughunt-mode
- */
-/*
-void reviewUnknown ()
-{
-	ConnList * curr_conn = unknowntcp->connections;
-	ConnList * previous_conn = NULL;
-
-	while (curr_conn != NULL) {
-		unsigned long inode = conninode[curr_conn->getVal()->refpacket->gethashstring()];
-		if (inode != 0)
-		{
-			Process * proc = findProcess (inode);
-			if (proc != unknowntcp && proc != NULL)
-			{
-				if (DEBUG || bughuntmode)
-					std::cout << "FIXME: Previously unknown inode " << inode << " now got process - apparently it makes sense to review unknown connections\n";
-				// Yay! - but how can this happen?
-				assert(false);
-
-				// TODO: this needs some investigation/refactoring - we should never get here due to assert(false)
-
-				if (previous_conn != NULL)
-				{
-					previous_conn->setNext (curr_conn->getNext());
-					proc->connections = new ConnList (curr_conn->getVal(), proc->connections);
-					delete curr_conn;
-					curr_conn = previous_conn;
-				}
-				else
-				{
-					unknowntcp->connections = curr_conn->getNext();
-					proc->connections = new ConnList (curr_conn->getVal(), proc->connections);
-					delete curr_conn;
-					curr_conn = unknowntcp->connections;
-				}
-			}
-		}
-		previous_conn = curr_conn;
-		if (curr_conn != NULL)
-			curr_conn = curr_conn->getNext();
-	}
-}
-*/
 
 int ProcList::size ()
 {

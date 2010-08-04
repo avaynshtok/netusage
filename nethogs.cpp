@@ -376,25 +376,24 @@ int main (int argc, char** argv)
 		current_dev = current_dev->next;
 	}
 
-	struct timeval timer_interval;
-	timer_interval.tv_sec = refreshdelay;
-	timer_interval.tv_usec = 0;
-	refresh_timer_val.it_interval = timer_interval;
-	refresh_timer_val.it_value = timer_interval;
-	
+	refresh_timer_val.it_interval.tv_sec = refreshdelay;
+	refresh_timer_val.it_interval.tv_usec = 0;
+	refresh_timer_val.it_value.tv_sec = refreshdelay;
+	refresh_timer_val.it_value.tv_usec = 0;
+		
 	signal (SIGALRM, &alarm_cb);
 	signal (SIGINT, &quit_cb);
 	
-	setitimer(ITIMER_REAL, &refresh_timer_val, NULL);
-	//  alarm (refreshdelay);
-
+	if(setitimer(ITIMER_REAL, &refresh_timer_val, NULL) != 0) {
+		perror("setitimer");
+	}
+	
 	fprintf(stderr, "Waiting for first packet to arrive (see sourceforge.net bug 1019381)\n");
 
 	// Main loop:
 	//
 	//  Walks though the 'handles' list, which contains handles opened in non-blocking mode.
 	//  This causes the CPU utilisation to go up to 100%. This is tricky:
-	int ticks = 0;
 	while (1)
 	{
 		bool packets_read = false;
@@ -424,11 +423,10 @@ int main (int argc, char** argv)
 			ui_tick();
 		}
 
-		if (needrefresh || ticks == 10000)
+		if (needrefresh)
 		{
 			do_refresh();
 			needrefresh = false;
-			ticks = 0;
 		}
 
 		// If no packets were read at all this iteration, pause to prevent 100%
@@ -438,7 +436,6 @@ int main (int argc, char** argv)
 			usleep(100);
 		}
 		
-		//ticks += 1;
 	}
 }
 
