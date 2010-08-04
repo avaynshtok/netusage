@@ -13,8 +13,6 @@
 
 #include "process.h"
 #include "nethogs.h"
-/* #include "inodeproc.cpp" */
-#include "conninode.h"
 
 extern "C" {
   #include "lsof.h"

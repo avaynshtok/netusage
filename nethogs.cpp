@@ -12,6 +12,7 @@
 #include <string.h>
 #include <getopt.h>
 #include <stdarg.h>
+#include <sys/time.h>
 
 #include <netinet/ip.h>
 #include <netinet/ip6.h>
@@ -32,6 +33,7 @@ extern "C" {
 extern Process * unknownudp;
 
 unsigned refreshdelay = 1;
+struct itimerval refresh_timer_val;
 bool tracemode = false;
 bool bughuntmode = false;
 bool needrefresh = true;
@@ -279,7 +281,7 @@ int main (int argc, char** argv)
 	device * devices = NULL;
 	//dp_link_type linktype = dp_link_ethernet;
 	int promisc = 0;
-
+		
 	int opt;
 	while ((opt = getopt(argc, argv, "Vhbtpd:")) != -1) {
 		switch(opt) {
@@ -374,9 +376,17 @@ int main (int argc, char** argv)
 		current_dev = current_dev->next;
 	}
 
+	struct timeval timer_interval;
+	timer_interval.tv_sec = refreshdelay;
+	timer_interval.tv_usec = 0;
+	refresh_timer_val.it_interval = timer_interval;
+	refresh_timer_val.it_value = timer_interval;
+	
 	signal (SIGALRM, &alarm_cb);
 	signal (SIGINT, &quit_cb);
-	alarm (refreshdelay);
+	
+	setitimer(ITIMER_REAL, &refresh_timer_val, NULL);
+	//  alarm (refreshdelay);
 
 	fprintf(stderr, "Waiting for first packet to arrive (see sourceforge.net bug 1019381)\n");
 
@@ -428,7 +438,7 @@ int main (int argc, char** argv)
 			usleep(100);
 		}
 		
-		ticks += 1;
+		//ticks += 1;
 	}
 }
 
