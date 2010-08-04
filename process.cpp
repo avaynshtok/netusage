@@ -28,10 +28,11 @@ extern local_addr * local_addrs;
  * key contains source ip, source port, destination ip, destination 
  * port in format: '1.2.3.4:5-1.2.3.4:5'
  */
-extern std::map <std::string, unsigned long> conninode;
+//extern std::map <std::string, unsigned long> conninode;
 
-
-std::map <std::string, int> conn_to_proc;
+extern bool needrefresh;
+std::map <int, Process *> pid_to_proc;
+std::map <std::string, Process *> conn_to_proc;
 
 
 /* this file includes:
@@ -53,12 +54,12 @@ ProcList * processes;
 /* We're migrating to having several `unknown' processes that are added as 
  * normal processes, instead of hard-wired unknown processes.
  * This mapping maps from unknown processes descriptions to processes */
-std::map <std::string, Process*> unknownprocs;
+std::map <char *, Process*> unknownprocs;
 
 
 void process_init () 
 {
-	unknowntcp = new Process (0, "", "unknown TCP");
+	unknowntcp = new Process ("", "unknown TCP");
 	//unknownudp = new Process (0, "", "unknown UDP");
 	//unknownip = new Process (0, "", "unknown IP");
 	processes = new ProcList (unknowntcp, NULL);
@@ -81,22 +82,23 @@ int Process::getLastPacket()
 	return lastpacket;
 }
 
-/*
-Process * findProcess (struct prg_node * node)
+Process * listProcs()
 {
 	ProcList * current = processes;
+	printf("procs: \n");
 	while (current != NULL)
 	{
 		Process * currentproc = current->getVal();
 		assert (currentproc != NULL);
-		
+		printf("%s\n", currentproc->name);
+		/*
 		if (node->pid == currentproc->pid)
 			return current->getVal();
 		current = current->next;
+		*/
 	}
 	return NULL;
 }
- */
 
 /* finds process based on inode, if any */
 /* should be done quickly after arrival of the packet, 
@@ -191,26 +193,39 @@ void check_all_procs ()
 Process * getProcess (Connection * connection, char * devicename)
 {
 	//unsigned long inode = conninode[connection->refpacket->gethashstring()];
-	char *hash = connection->refpacket->gethashstring();
-	printf("hash: %s\n", hash);
+	std::string hash = std::string(connection->refpacket->gethashstring());
+	//printf("hash: %s\n", hash);
 	
-	int pid = conn_to_proc[hash];
-	printf("pid: %i\n\n", pid);
+	Process *proc = conn_to_proc[hash];
+	if (proc == NULL) {
+		//printf("refreshing\n");
+		updateProcList();
+		
+		proc = conn_to_proc[hash];
+		if (proc == NULL) {
+			//printf("couldn't find proc after refresh\n");
+			return unknowntcp;
+		} else {
+			//printf("proc after refresh: %s\n", proc->name);
+			// this is a new proc
+		}
+	} else {
+		//printf("got proc for %s first time: %s [%i]\n", hash.c_str(), proc->name, proc->pid);
+	}
 	
 	fflush(stdout);
-
-	updateProcList();
 	
-	return unknowntcp;
-	//proc->connections = new ConnList (connection, proc->connections);
+	proc->connections = new ConnList (connection, proc->connections);
+	return proc;
+	
 	//return proc;
 }
 
 void updateProcList() {
 	// we want
-	struct lfile *lf;
+	//struct lfile *lf;
 	struct lproc **slp = (struct lproc **)NULL;
-	int i, n;
+	int i; //, n;
 	int sp = 0;
 	MALLOC_S len;
 	char options[128];
@@ -305,14 +320,45 @@ void updateProcList() {
 				char *hash = (char *)malloc(strlen(from) + strlen(to) + strlen(from_port) + strlen(to_port) + 3 + 1);
 				sprintf(hash, "%s:%s-%s:%s", from, from_port, to, to_port);
 				
-				conn_to_proc[hash] = Lproc[i].pid;
+				// find if proc exists
+				int pid = Lproc[i].pid;
+				Process *proc = pid_to_proc[pid];
+				//char *name = Lproc[i].cmd;
+				if (proc == NULL) {
+					proc = new Process(file->fsdev, Lproc[i].cmd);
+					proc->pid = pid;
+					processes = new ProcList (proc, processes);
+					pid_to_proc[pid] = proc;
+					
+					//printf("making %s with %i (var: %i), proc: %s (%08X)\n", hash, proc->pid, pid, proc->name, (int)proc);
+				}
+
+				//printf("associating %s with %i (var: %i), proc: %s (%08X)\n", hash, proc->pid, pid, proc->name, (int)proc);
+
+				std::string hash_string = std::string(hash);
+				conn_to_proc[hash_string] = proc;
+				
+
+				//dumpConnToProc();
 				//printf("%s %s:%s -> %s:%s %s\n", Lproc[i].cmd, from, from_port, to, to_port, file->iproto);
 			}
 			file = file->next;
 		}
 	}
+	
+	needrefresh = true;
 }
 
+void dumpConnToProc() {
+	//std::map<std::string, Process*>::iterator it = conn_to_proc.begin();
+	
+	std::cout << "Conn to proc:\n";
+    for(std::map<std::string, Process*>::iterator it = conn_to_proc.begin(); it != conn_to_proc.end(); ++it)
+    {
+		std::cout << "From hash: " << it->first << " to " << it->second << "\n";
+    }
+	std::cout << "\n";
+}
 
 void procclean ()
 {

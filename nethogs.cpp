@@ -106,14 +106,23 @@ int process_tcp (u_char * userdata, const dp_header * header, const u_char * m_p
 
 	Connection * connection = findConnection(packet);
 
+	
+	//printf("got tcp packet\n");
+	
 	if (connection != NULL)
 	{
 		/* add packet to the connection */
+		//printf("adding to connection\n");
+		//printf("old connection\n");
 		connection->add(packet);
 	} else {
 		/* else: unknown connection, create new */
+		//printf("new connection\n");
 		connection = new Connection (packet);
-		getProcess(connection, currentdevice);
+		Process *proc = getProcess(connection, currentdevice);
+		connection->pid = proc->pid;
+		
+		//printf("new connection\n");		
 	}
 	delete packet;
 
@@ -122,6 +131,8 @@ int process_tcp (u_char * userdata, const dp_header * header, const u_char * m_p
 		do_refresh();
 		needrefresh = false;
 	}
+	
+	fflush(stdout);
 
 	/* we're done now. */
 	return true;
@@ -373,6 +384,7 @@ int main (int argc, char** argv)
 	//
 	//  Walks though the 'handles' list, which contains handles opened in non-blocking mode.
 	//  This causes the CPU utilisation to go up to 100%. This is tricky:
+	int ticks = 0;
 	while (1)
 	{
 		bool packets_read = false;
@@ -402,10 +414,11 @@ int main (int argc, char** argv)
 			ui_tick();
 		}
 
-		if (needrefresh)
+		if (needrefresh || ticks == 10000)
 		{
-			//do_refresh();
+			do_refresh();
 			needrefresh = false;
+			ticks = 0;
 		}
 
 		// If no packets were read at all this iteration, pause to prevent 100%
@@ -414,6 +427,8 @@ int main (int argc, char** argv)
 		{
 			usleep(100);
 		}
+		
+		ticks += 1;
 	}
 }
 

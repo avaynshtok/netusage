@@ -306,7 +306,7 @@ void gettotalb(Process * curproc, float * recvd, float * sent)
 // Display all processes and relevant network traffic using show function
 void do_refresh()
 {
-	refreshconninode();
+	//refreshconninode();
 	if (DEBUG || tracemode)
 	{
 		std::cout << "\nRefreshing:\n";
@@ -344,11 +344,12 @@ void do_refresh()
 		assert (nproc == processes->size());
 
 		/* remove timed-out processes (unless it's one of the the unknown process) */
-		if ((curproc->getVal()->getLastPacket() + PROCESSTIMEOUT <= curtime.tv_sec)
+		if ((false && curproc->getVal()->getLastPacket() + PROCESSTIMEOUT <= curtime.tv_sec)
 				&& (curproc->getVal() != unknowntcp)
 				&& (curproc->getVal() != unknownudp)
 				&& (curproc->getVal() != unknownip))
 		{
+			/*
 			if (DEBUG)
 				std::cout << "PROC: Deleting process\n";
 			ProcList * todelete = curproc;
@@ -365,6 +366,7 @@ void do_refresh()
 			delete p_todelete;
 			nproc--;
 			//continue;
+			 */
 		}
 		else
 		{

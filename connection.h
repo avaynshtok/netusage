@@ -81,6 +81,9 @@ public:
 	/* total sum or sent/received bytes */
 	u_int32_t sumSent;
 	u_int32_t sumRecv;
+	
+	// link back for fun
+	int pid;
 private:
 	PackList * sent_packets; 
 	PackList * recv_packets; 

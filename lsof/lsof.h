@@ -219,7 +219,7 @@ extern int optind;
 #define	CRC_TBLL	256		/* crc table length for software */
 #define	CRC_BITS	8		/* number of bits contributing */
 # endif	/* defined(HASDCACHE) */
-#define	CMDL		9		/* maximum number of characters from
+#define	CMDL		25		/* maximum number of characters from
 					 * command name to print in COMMAND
 					 * column */
 #define	CWD		" cwd"		/* current working directory fd name */
