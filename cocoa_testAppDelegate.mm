@@ -7,13 +7,21 @@
 //
 
 #import "cocoa_testAppDelegate.h"
+#import "MainController.h"
 
 @implementation cocoa_testAppDelegate
 
 @synthesize window;
 
+extern int nh_main (int argc, char** argv);
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-	// Insert code here to initialize your application 
+	[NSThread detachNewThreadSelector:@selector(launchCommandLine) toTarget:self withObject:nil];
+}
+
+- (void) launchCommandLine {
+	char *c;
+	nh_main(1, &c);
 }
 
 @end

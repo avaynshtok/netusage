@@ -15,6 +15,9 @@
 #include "process.h"
 #include "decpcap.h"
 
+#include "cui.h"
+
+extern void updateGUI(NHLine ** lines, int numprocs);
 
 std::string * caption;
 //extern char [] version;
@@ -36,32 +39,6 @@ int VIEWMODE_TOTAL_MB = 3;
 int viewMode = VIEWMODE_KBPS;
 int nViewModes = 4;
 
-class Line
-{
-public:
-	Line (const char * name, double n_recv_value, double n_sent_value, pid_t pid, uid_t uid, const char * n_devicename)
-	{
-		assert (pid >= 0);
-		m_name = name;
-		sent_value = n_sent_value;
-		recv_value = n_recv_value;
-		devicename = n_devicename;
-		m_pid = pid;
-		m_uid = uid;
-		assert (m_pid >= 0);
-	}
-
-	void show (int row);
-
-	double sent_value;
-	double recv_value;
-private:
-	const char * m_name;
-	const char * devicename;
-	pid_t m_pid;
-	uid_t m_uid;
-};
-
 char * uid2username (uid_t uid)
 {
 	struct passwd * pwd = NULL;
@@ -79,7 +56,7 @@ char * uid2username (uid_t uid)
 }
 
 
-void Line::show (int row)
+void NHLine::show (int row)
 {
 	assert (m_pid >= 0);
 	assert (m_pid <= 100000);
@@ -128,10 +105,10 @@ void Line::show (int row)
 
 int GreatestFirst (const void * ma, const void * mb)
 {
-	Line ** pa = (Line **)ma;
-	Line ** pb = (Line **)mb;
-	Line * a = *pa;
-	Line * b = *pb;
+	NHLine ** pa = (NHLine **)ma;
+	NHLine ** pb = (NHLine **)mb;
+	NHLine * a = *pa;
+	NHLine * b = *pb;
 	double aValue;
 	if (sortRecv)
 	{
@@ -326,7 +303,7 @@ void do_refresh()
 	ProcList * previousproc = NULL;
 	int nproc = processes->size();
 	/* initialise to null pointers */
-	Line * lines [nproc];
+	NHLine * lines [nproc];
 	int n = 0, i = 0;
 	double sent_global = 0;
 	double recv_global = 0;
@@ -418,7 +395,7 @@ void do_refresh()
 			assert (curproc->getVal()->pid >= 0);
 			assert (n < nproc);
 
-			lines[n] = new Line (curproc->getVal()->name, value_recv, value_sent,
+			lines[n] = new NHLine (curproc->getVal()->name, value_recv, value_sent,
 					curproc->getVal()->pid, uid, curproc->getVal()->devicename);
 			previousproc = curproc;
 			curproc = curproc->next;
@@ -434,7 +411,10 @@ void do_refresh()
 	}
 
 	/* sort the accumulated lines */
-	qsort (lines, nproc, sizeof(Line *), GreatestFirst);
+	qsort (lines, nproc, sizeof(NHLine *), GreatestFirst);
+	
+	// callback to objectivec land
+	updateGUI(lines, nproc);
 
 	/* print them */
 	for (i=0; i<nproc; i++)
@@ -474,6 +454,7 @@ void do_refresh()
 		mvprintw (4+1+i, 0, "");
 		refresh();
 	}
+	
 }
 
 
