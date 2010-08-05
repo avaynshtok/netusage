@@ -34,6 +34,48 @@
 		3A65A3621207F0840057F194 /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3461207F0840057F194 /* print.c */; };
 		3A65A3631207F0840057F194 /* proc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3471207F0840057F194 /* proc.c */; };
 		3A65A3641207F0840057F194 /* store.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3491207F0840057F194 /* store.c */; };
+		6147595B120A826600FFA49C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61475919120A7ED300FFA49C /* MainMenu.xib */; };
+		6147595C120A826600FFA49C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61475917120A7ED300FFA49C /* InfoPlist.strings */; };
+		6147595D120A826600FFA49C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 61475905120A7E1800FFA49C /* Info.plist */; };
+		6147595E120A827A00FFA49C /* cui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55811205455A0070FDED /* cui.cpp */; };
+		6147595F120A827A00FFA49C /* decpcap.c in Sources */ = {isa = PBXBuildFile; fileRef = 614B55831205455A0070FDED /* decpcap.c */; };
+		61475960120A827A00FFA49C /* nethogs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55881205455A0070FDED /* nethogs.cpp */; };
+		61475961120A827A00FFA49C /* packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558A1205455A0070FDED /* packet.cpp */; };
+		61475962120A827A00FFA49C /* process.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558C1205455A0070FDED /* process.cpp */; };
+		61475963120A827A00FFA49C /* refresh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558E1205455A0070FDED /* refresh.cpp */; };
+		61475964120A827A00FFA49C /* ckkv.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3271207F0840057F194 /* ckkv.c */; };
+		61475965120A827A00FFA49C /* cvfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3281207F0840057F194 /* cvfs.c */; };
+		61475966120A827A00FFA49C /* dvch.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3291207F0840057F194 /* dvch.c */; };
+		61475967120A827A00FFA49C /* fino.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32A1207F0840057F194 /* fino.c */; };
+		61475968120A827A00FFA49C /* isfn.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32B1207F0840057F194 /* isfn.c */; };
+		61475969120A827A00FFA49C /* lkud.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32C1207F0840057F194 /* lkud.c */; };
+		6147596A120A827A00FFA49C /* pdvn.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32E1207F0840057F194 /* pdvn.c */; };
+		6147596B120A827A00FFA49C /* prfp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32F1207F0840057F194 /* prfp.c */; };
+		6147596C120A827A00FFA49C /* ptti.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3301207F0840057F194 /* ptti.c */; };
+		6147596D120A827A00FFA49C /* rdev.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3311207F0840057F194 /* rdev.c */; };
+		6147596E120A827A00FFA49C /* regex.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3321207F0840057F194 /* regex.c */; };
+		6147596F120A827A00FFA49C /* rmnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3331207F0840057F194 /* rmnt.c */; };
+		61475970120A827A00FFA49C /* rnam.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3341207F0840057F194 /* rnam.c */; };
+		61475971120A827A00FFA49C /* rnch.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3351207F0840057F194 /* rnch.c */; };
+		61475972120A827A00FFA49C /* rnmh.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3361207F0840057F194 /* rnmh.c */; };
+		61475973120A827A00FFA49C /* snpf.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3371207F0840057F194 /* snpf.c */; };
+		61475974120A827A00FFA49C /* ddev.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3391207F0840057F194 /* ddev.c */; };
+		61475975120A827A00FFA49C /* dfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33A1207F0840057F194 /* dfile.c */; };
+		61475976120A827A00FFA49C /* dmnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33C1207F0840057F194 /* dmnt.c */; };
+		61475977120A827A00FFA49C /* dproc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33D1207F0840057F194 /* dproc.c */; };
+		61475978120A827A00FFA49C /* dsock.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33F1207F0840057F194 /* dsock.c */; };
+		61475979120A827A00FFA49C /* dstore.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3401207F0840057F194 /* dstore.c */; };
+		6147597A120A827A00FFA49C /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3441207F0840057F194 /* misc.c */; };
+		6147597B120A827A00FFA49C /* node.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3451207F0840057F194 /* node.c */; };
+		6147597C120A827A00FFA49C /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3461207F0840057F194 /* print.c */; };
+		6147597D120A827A00FFA49C /* proc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3471207F0840057F194 /* proc.c */; };
+		6147597E120A827A00FFA49C /* store.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3491207F0840057F194 /* store.c */; };
+		6147597F120A827A00FFA49C /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61877E8312095C8000ED783A /* connection.cpp */; };
+		61475980120A827A00FFA49C /* cocoa_testAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.m */; };
+		61475981120A827A00FFA49C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6147590C120A7E5900FFA49C /* main.m */; };
+		61475982120A828E00FFA49C /* libcurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565312054AC50070FDED /* libcurses.dylib */; };
+		61475983120A828E00FFA49C /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565712054AE80070FDED /* libpcap.dylib */; };
+		61475984120A828E00FFA49C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614757A9120A7E0D00FFA49C /* Cocoa.framework */; };
 		614B55921205455A0070FDED /* cui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55811205455A0070FDED /* cui.cpp */; };
 		614B55931205455A0070FDED /* decpcap.c in Sources */ = {isa = PBXBuildFile; fileRef = 614B55831205455A0070FDED /* decpcap.c */; };
 		614B55961205455A0070FDED /* nethogs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55881205455A0070FDED /* nethogs.cpp */; };
@@ -93,6 +135,19 @@
 		3A65A3471207F0840057F194 /* proc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = proc.c; sourceTree = "<group>"; };
 		3A65A3481207F0840057F194 /* proto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = proto.h; sourceTree = "<group>"; };
 		3A65A3491207F0840057F194 /* store.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = store.c; sourceTree = "<group>"; };
+		614757A9120A7E0D00FFA49C /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		614757AB120A7E0D00FFA49C /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		614757AC120A7E0D00FFA49C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		614757AD120A7E0D00FFA49C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		61475905120A7E1800FFA49C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61475908120A7E4D00FFA49C /* cocoa_testAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cocoa_testAppDelegate.h; sourceTree = "<group>"; };
+		61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = cocoa_testAppDelegate.m; sourceTree = "<group>"; };
+		6147590B120A7E5900FFA49C /* netusage_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netusage_Prefix.pch; sourceTree = "<group>"; };
+		6147590C120A7E5900FFA49C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		61475918120A7ED300FFA49C /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
+		6147591A120A7ED300FFA49C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MainMenu.xib; sourceTree = "<group>"; };
+		6147594A120A81D100FFA49C /* netusage.app-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "netusage.app-Info.plist"; sourceTree = "<group>"; };
+		61475957120A825500FFA49C /* netusage.app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netusage.app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		614B55811205455A0070FDED /* cui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cui.cpp; sourceTree = "<group>"; };
 		614B55821205455A0070FDED /* cui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cui.h; sourceTree = "<group>"; };
 		614B55831205455A0070FDED /* decpcap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decpcap.c; sourceTree = "<group>"; };
@@ -116,6 +171,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		61475955120A825500FFA49C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61475982120A828E00FFA49C /* libcurses.dylib in Frameworks */,
+				61475983120A828E00FFA49C /* libpcap.dylib in Frameworks */,
+				61475984120A828E00FFA49C /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76FAD0486AB0100D96B5E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,11 +196,16 @@
 		08FB7794FE84155DC02AAC07 /* netusage */ = {
 			isa = PBXGroup;
 			children = (
+				6147590B120A7E5900FFA49C /* netusage_Prefix.pch */,
+				6147590C120A7E5900FFA49C /* main.m */,
+				61475908120A7E4D00FFA49C /* cocoa_testAppDelegate.h */,
+				61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.m */,
+				61475904120A7E1800FFA49C /* Resources */,
+				614757A7120A7E0D00FFA49C /* Frameworks */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
-				614B565312054AC50070FDED /* libcurses.dylib */,
-				614B565712054AE80070FDED /* libpcap.dylib */,
+				6147594A120A81D100FFA49C /* netusage.app-Info.plist */,
 			);
 			name = netusage;
 			sourceTree = "<group>";
@@ -167,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				8DD76FB20486AB0100D96B5E /* netusage */,
+				61475957120A825500FFA49C /* netusage.app.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +299,45 @@
 			path = libproc;
 			sourceTree = "<group>";
 		};
+		614757A7120A7E0D00FFA49C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				614B565312054AC50070FDED /* libcurses.dylib */,
+				614B565712054AE80070FDED /* libpcap.dylib */,
+				614757AA120A7E0D00FFA49C /* Other Frameworks */,
+				614757A8120A7E0D00FFA49C /* Linked Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		614757A8120A7E0D00FFA49C /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				614757A9120A7E0D00FFA49C /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		614757AA120A7E0D00FFA49C /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				614757AB120A7E0D00FFA49C /* AppKit.framework */,
+				614757AC120A7E0D00FFA49C /* CoreData.framework */,
+				614757AD120A7E0D00FFA49C /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		61475904120A7E1800FFA49C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				61475919120A7ED300FFA49C /* MainMenu.xib */,
+				61475917120A7ED300FFA49C /* InfoPlist.strings */,
+				61475905120A7E1800FFA49C /* Info.plist */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		C6A0FF2B0290797F04C91782 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +349,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		61475956120A825500FFA49C /* netusage.app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage.app" */;
+			buildPhases = (
+				61475953120A825500FFA49C /* Resources */,
+				61475954120A825500FFA49C /* Sources */,
+				61475955120A825500FFA49C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = netusage.app;
+			productName = netusage.app;
+			productReference = 61475957120A825500FFA49C /* netusage.app.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8DD76FA90486AB0100D96B5E /* netusage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "netusage" */;
@@ -270,11 +397,68 @@
 			projectRoot = "";
 			targets = (
 				8DD76FA90486AB0100D96B5E /* netusage */,
+				61475956120A825500FFA49C /* netusage.app */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		61475953120A825500FFA49C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6147595B120A826600FFA49C /* MainMenu.xib in Resources */,
+				6147595C120A826600FFA49C /* InfoPlist.strings in Resources */,
+				6147595D120A826600FFA49C /* Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		61475954120A825500FFA49C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61475981120A827A00FFA49C /* main.m in Sources */,
+				6147595E120A827A00FFA49C /* cui.cpp in Sources */,
+				6147595F120A827A00FFA49C /* decpcap.c in Sources */,
+				61475960120A827A00FFA49C /* nethogs.cpp in Sources */,
+				61475961120A827A00FFA49C /* packet.cpp in Sources */,
+				61475962120A827A00FFA49C /* process.cpp in Sources */,
+				61475963120A827A00FFA49C /* refresh.cpp in Sources */,
+				61475964120A827A00FFA49C /* ckkv.c in Sources */,
+				61475965120A827A00FFA49C /* cvfs.c in Sources */,
+				61475966120A827A00FFA49C /* dvch.c in Sources */,
+				61475967120A827A00FFA49C /* fino.c in Sources */,
+				61475968120A827A00FFA49C /* isfn.c in Sources */,
+				61475969120A827A00FFA49C /* lkud.c in Sources */,
+				6147596A120A827A00FFA49C /* pdvn.c in Sources */,
+				6147596B120A827A00FFA49C /* prfp.c in Sources */,
+				6147596C120A827A00FFA49C /* ptti.c in Sources */,
+				6147596D120A827A00FFA49C /* rdev.c in Sources */,
+				6147596E120A827A00FFA49C /* regex.c in Sources */,
+				6147596F120A827A00FFA49C /* rmnt.c in Sources */,
+				61475970120A827A00FFA49C /* rnam.c in Sources */,
+				61475971120A827A00FFA49C /* rnch.c in Sources */,
+				61475972120A827A00FFA49C /* rnmh.c in Sources */,
+				61475973120A827A00FFA49C /* snpf.c in Sources */,
+				61475974120A827A00FFA49C /* ddev.c in Sources */,
+				61475975120A827A00FFA49C /* dfile.c in Sources */,
+				61475976120A827A00FFA49C /* dmnt.c in Sources */,
+				61475977120A827A00FFA49C /* dproc.c in Sources */,
+				61475978120A827A00FFA49C /* dsock.c in Sources */,
+				61475979120A827A00FFA49C /* dstore.c in Sources */,
+				6147597A120A827A00FFA49C /* misc.c in Sources */,
+				6147597B120A827A00FFA49C /* node.c in Sources */,
+				6147597C120A827A00FFA49C /* print.c in Sources */,
+				6147597D120A827A00FFA49C /* proc.c in Sources */,
+				6147597E120A827A00FFA49C /* store.c in Sources */,
+				6147597F120A827A00FFA49C /* connection.cpp in Sources */,
+				61475980120A827A00FFA49C /* cocoa_testAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76FAB0486AB0100D96B5E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,6 +502,27 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		61475917120A7ED300FFA49C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				61475918120A7ED300FFA49C /* English */,
+			);
+			name = InfoPlist.strings;
+			path = English.lproj;
+			sourceTree = "<group>";
+		};
+		61475919120A7ED300FFA49C /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6147591A120A7ED300FFA49C /* English */,
+			);
+			name = MainMenu.xib;
+			path = English.lproj;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		1DEB928608733DD80010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -349,7 +554,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INPUT_FILETYPE = automatic;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREFIX_HEADER = netusage_Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -358,6 +565,7 @@
 					"-lncurses",
 				);
 				PREBINDING = NO;
+				PRECOMPS_INCLUDE_HEADERS_FROM_BUILT_PRODUCTS_DIR = YES;
 				SDKROOT = macosx10.6;
 			};
 			name = Debug;
@@ -367,11 +575,61 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREFIX_HEADER = netusage_Prefix.pch;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = ./Info.plist;
 				OTHER_CFLAGS = "-DDARWINV=10640";
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
+			};
+			name = Release;
+		};
+		61475959120A825500FFA49C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = netusage_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = netusage.app;
+			};
+			name = Debug;
+		};
+		6147595A120A825500FFA49C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = netusage_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = netusage.app;
+				ZERO_LINK = NO;
 			};
 			name = Release;
 		};
@@ -392,6 +650,15 @@
 			buildConfigurations = (
 				1DEB928A08733DD80010E9CD /* Debug */,
 				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage.app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				61475959120A825500FFA49C /* Debug */,
+				6147595A120A825500FFA49C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

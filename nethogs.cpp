@@ -280,7 +280,7 @@ public:
 	handle * next;
 };
 
-int main (int argc, char** argv)
+int nh_main (int argc, char** argv)
 {
 	process_init();
 
