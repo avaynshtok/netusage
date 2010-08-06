@@ -39,11 +39,11 @@ MainController *instance;
 			return pid;
 		}
 		else if ([[tableColumn identifier] isEqualToString:@"sent"]) {
-			NSString *sent = [NSString stringWithFormat:@"%10.3f", pi.sent];
+			NSString *sent = [NSString stringWithFormat:@"%.3f", pi.sent];
 			return sent;
 		}
 		else if ([[tableColumn identifier] isEqualToString:@"received"]) {
-			NSString *rcvd = [NSString stringWithFormat:@"%10.3f", pi.received];
+			NSString *rcvd = [NSString stringWithFormat:@"%.3f", pi.received];
 			return rcvd;
 		}
 		else {
@@ -62,6 +62,7 @@ void updateGUI(NHLine **lines, int numprocs) {
 	CFStringRef processName = NULL;
 	OSStatus result;
 	
+	NSMutableSet *currentPids = [[[NSMutableSet alloc] init] autorelease];
 	for (int i = 0; i < numprocs; i++) {
 		NHLine *line = lines[i];
 		
@@ -69,27 +70,43 @@ void updateGUI(NHLine **lines, int numprocs) {
 		if (pid != 0) {
 			result = GetProcessForPID(pid, &psn);
 			result = CopyProcessName(&psn, &processName);
-		
+			NSString *processNameString;
+			
 			if (processName != NULL) {
-				NSLog(@"got proc %@", processName);
+				//NSLog(@"got proc %@", processName);
 				
-				NSString *processNameString = (NSString*) processName;
-				NSNumber *pidNum = [NSNumber numberWithInt:pid];
-				
-				ProcInfo *pi = [procs objectForKey:pidNum];
-				if (pi == nil) {
-					pi = [[ProcInfo alloc] init];
-					pi.pid = pid;
-				}
-				
-				pi.name = processNameString;
-				pi.sent = line->sent_value;
-				pi.received = line->recv_value;
-
-				[procs setObject:pi forKey:pidNum];
-				CFRelease(processName);
-				[pidNum release];
+				processNameString = (NSString*) processName;
 			}
+			else {
+				processNameString = [NSString stringWithCString:line->m_name];
+			}
+			
+			NSNumber *pidNum = [NSNumber numberWithInt:pid];
+			
+			ProcInfo *pi = [procs objectForKey:pidNum];
+			if (pi == nil) {
+				pi = [[ProcInfo alloc] init];
+				pi.pid = pid;
+			}
+			
+			pi.name = processNameString;
+			pi.sent = line->sent_value;
+			pi.received = line->recv_value;
+
+			[procs setObject:pi forKey:pidNum];
+			[currentPids addObject:pidNum];
+			
+			if (processName != NULL) {
+				CFRelease(processName);
+			}
+			[pidNum release];
+		
+		}
+	}
+	
+	for (NSNumber *pid in [procs allKeys]) {
+		if (! [currentPids member:pid] ) {
+			[procs removeObjectForKey:pid];
 		}
 	}
 	
