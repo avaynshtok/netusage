@@ -16,14 +16,16 @@
 @end
 
 
-@interface ProcInfo : NSObject {
+@interface ProcInfo : NSObject<NSCopying> {
 	NSString *name;
 	pid_t pid;
 	double sent;
 	double received;
+	NSImage *icon;
 }
 @property(nonatomic,copy) NSString *name;
 @property(nonatomic) pid_t pid;
 @property(nonatomic) double sent;
 @property(nonatomic) double received;
+@property(nonatomic, assign) NSImage *icon;
 @end

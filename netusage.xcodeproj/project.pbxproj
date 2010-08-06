@@ -86,6 +86,8 @@
 		6180C383120A8DD50010977F /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6180C382120A8DD50010977F /* MainController.m */; };
 		6180C3C7120A915E0010977F /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6180C382120A8DD50010977F /* MainController.m */; };
 		61877E8512095C8000ED783A /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61877E8312095C8000ED783A /* connection.cpp */; };
+		61C5E125120BC175004B4C3A /* ProcessNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5E124120BC175004B4C3A /* ProcessNameCell.m */; };
+		61C5E15D120BC4A0004B4C3A /* ProcessNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5E124120BC175004B4C3A /* ProcessNameCell.m */; };
 		8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* netusage.1 */; };
 /* End PBXBuildFile section */
 
@@ -168,6 +170,8 @@
 		61877E5712095B2100ED783A /* machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = machine.h; sourceTree = "<group>"; };
 		61877E8312095C8000ED783A /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
 		61877E8412095C8000ED783A /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		61C5E123120BC175004B4C3A /* ProcessNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessNameCell.h; sourceTree = "<group>"; };
+		61C5E124120BC175004B4C3A /* ProcessNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessNameCell.m; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* netusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = netusage; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* netusage.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = netusage.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -209,6 +213,8 @@
 				61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.mm */,
 				6180C381120A8DD50010977F /* MainController.h */,
 				6180C382120A8DD50010977F /* MainController.m */,
+				61C5E123120BC175004B4C3A /* ProcessNameCell.h */,
+				61C5E124120BC175004B4C3A /* ProcessNameCell.m */,
 			);
 			name = netusage;
 			sourceTree = "<group>";
@@ -422,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C5E15D120BC4A0004B4C3A /* ProcessNameCell.m in Sources */,
 				6180C3C7120A915E0010977F /* MainController.m in Sources */,
 				61475980120A827A00FFA49C /* cocoa_testAppDelegate.mm in Sources */,
 				61475981120A827A00FFA49C /* main.m in Sources */,
@@ -501,6 +508,7 @@
 				3A65A3641207F0840057F194 /* store.c in Sources */,
 				61877E8512095C8000ED783A /* connection.cpp in Sources */,
 				6180C383120A8DD50010977F /* MainController.m in Sources */,
+				61C5E125120BC175004B4C3A /* ProcessNameCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 
 #import "MainController.h"
 #import "cui.h"
+#import "ProcessNameCell.h"
 
 @implementation MainController
 @synthesize myTableView;
@@ -47,7 +48,8 @@ MainController *instance;
 			return rcvd;
 		}
 		else {
-			return pi.name;
+			// process name cell
+			return pi;// pi.name;
 		}
 	}
 	
@@ -56,29 +58,18 @@ MainController *instance;
 
 void updateGUI(NHLine **lines, int numprocs) {
 	NSLog(@"hey there, we have %i procs", numprocs);
-	
-	ProcessSerialNumber psn;
-//	ProcessInfoRec info;
-	CFStringRef processName = NULL;
-	OSStatus result;
-	
+		
 	NSMutableSet *currentPids = [[[NSMutableSet alloc] init] autorelease];
 	for (int i = 0; i < numprocs; i++) {
 		NHLine *line = lines[i];
 		
 		pid_t pid = line->m_pid;
 		if (pid != 0) {
-			result = GetProcessForPID(pid, &psn);
-			result = CopyProcessName(&psn, &processName);
-			NSString *processNameString;
+			NSRunningApplication *app = [[NSRunningApplication runningApplicationWithProcessIdentifier:pid] autorelease];			
+			NSString *processNameString = app.localizedName;
 			
-			if (processName != NULL) {
-				//NSLog(@"got proc %@", processName);
-				
-				processNameString = (NSString*) processName;
-			}
-			else {
-				processNameString = [NSString stringWithCString:line->m_name];
+			if (processNameString == NULL) {
+				processNameString = [NSString stringWithCString:line->m_name encoding:NSUTF8StringEncoding];
 			}
 			
 			NSNumber *pidNum = [NSNumber numberWithInt:pid];
@@ -92,15 +83,16 @@ void updateGUI(NHLine **lines, int numprocs) {
 			pi.name = processNameString;
 			pi.sent = line->sent_value;
 			pi.received = line->recv_value;
+			pi.icon = app.icon;
+			
+			if (app.icon != nil) {
+				NSLog(@"app %@ has icon", processNameString);
+			}
 
 			[procs setObject:pi forKey:pidNum];
 			[currentPids addObject:pidNum];
 			
-			if (processName != NULL) {
-				CFRelease(processName);
-			}
-			[pidNum release];
-		
+			[pidNum release];		
 		}
 	}
 	
@@ -116,5 +108,14 @@ void updateGUI(NHLine **lines, int numprocs) {
 
 
 @implementation ProcInfo
-@synthesize pid, name, sent, received;
+@synthesize pid, name, sent, received, icon;
+
+- (id)copyWithZone:(NSZone *)zone {
+	[self retain];
+	return self;
+}
+
+- (NSString *)description {
+	return name;
+}
 @end

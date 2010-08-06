@@ -20,8 +20,12 @@ extern int nh_main (int argc, char** argv);
 }
 
 - (void) launchCommandLine {
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+	
 	char *c;
 	nh_main(1, &c);
+	
+	[pool release];
 }
 
 @end

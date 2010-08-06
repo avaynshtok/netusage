@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="372"/>
+			<integer value="546"/>
 			<integer value="57"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -308,7 +308,7 @@
 													<bool key="NSIsResizeable">YES</bool>
 													<reference key="NSTableView" ref="553243540"/>
 												</object>
-												<object class="NSTableColumn" id="149874207">
+												<object class="NSTableColumn" id="937083178">
 													<string key="NSIdentifier">sent</string>
 													<double key="NSWidth">95</double>
 													<double key="NSMinWidth">10</double>
@@ -316,20 +316,20 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">134219776</int>
-														<string key="NSContents">Sent</string>
+														<string key="NSContents">Sent (kB/s)</string>
 														<reference key="NSSupport" ref="26"/>
-														<object class="NSColor" key="NSBackgroundColor" id="967283133">
+														<object class="NSColor" key="NSBackgroundColor" id="234059168">
 															<int key="NSColorSpace">6</int>
 															<string key="NSCatalogName">System</string>
 															<string key="NSColorName">headerColor</string>
-															<object class="NSColor" key="NSColor" id="41451712">
+															<object class="NSColor" key="NSColor" id="537569759">
 																<int key="NSColorSpace">3</int>
 																<bytes key="NSWhite">MQA</bytes>
 															</object>
 														</object>
 														<reference key="NSTextColor" ref="132704146"/>
 													</object>
-													<object class="NSTextFieldCell" key="NSDataCell" id="897629054">
+													<object class="NSTextFieldCell" key="NSDataCell" id="136726316">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">67241984</int>
 														<string key="NSContents">Text Cell</string>
@@ -342,7 +342,7 @@
 													<bool key="NSIsResizeable">YES</bool>
 													<reference key="NSTableView" ref="553243540"/>
 												</object>
-												<object class="NSTableColumn" id="876697391">
+												<object class="NSTableColumn" id="485868250">
 													<string key="NSIdentifier">received</string>
 													<double key="NSWidth">91</double>
 													<double key="NSMinWidth">10</double>
@@ -350,12 +350,12 @@
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
 														<int key="NSCellFlags2">134219776</int>
-														<string key="NSContents">Received</string>
+														<string key="NSContents">Received (kB/s)</string>
 														<reference key="NSSupport" ref="26"/>
-														<reference key="NSBackgroundColor" ref="967283133"/>
+														<reference key="NSBackgroundColor" ref="234059168"/>
 														<reference key="NSTextColor" ref="132704146"/>
 													</object>
-													<object class="NSTextFieldCell" key="NSDataCell" id="701430681">
+													<object class="NSTextFieldCell" key="NSDataCell" id="380064440">
 														<int key="NSCellFlags">337772096</int>
 														<int key="NSCellFlags2">67241984</int>
 														<string key="NSContents">Text Cell</string>
@@ -371,7 +371,7 @@
 											</object>
 											<double key="NSIntercellSpacingWidth">3</double>
 											<double key="NSIntercellSpacingHeight">2</double>
-											<reference key="NSBackgroundColor" ref="41451712"/>
+											<reference key="NSBackgroundColor" ref="537569759"/>
 											<object class="NSColor" key="NSGridColor">
 												<int key="NSColorSpace">6</int>
 												<string key="NSCatalogName">System</string>
@@ -458,7 +458,7 @@
 			<object class="NSCustomObject" id="755631768">
 				<string key="NSClassName">NSFontManager</string>
 			</object>
-			<object class="NSCustomObject" id="432918031">
+			<object class="NSCustomObject" id="367520531">
 				<string key="NSClassName">MainController</string>
 			</object>
 		</object>
@@ -525,7 +525,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="553243540"/>
-						<reference key="destination" ref="432918031"/>
+						<reference key="destination" ref="367520531"/>
 					</object>
 					<int key="connectionID">558</int>
 				</object>
@@ -533,7 +533,7 @@
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="553243540"/>
-						<reference key="destination" ref="432918031"/>
+						<reference key="destination" ref="367520531"/>
 					</object>
 					<int key="connectionID">559</int>
 				</object>
@@ -723,8 +723,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="955135958"/>
 							<reference ref="877676470"/>
-							<reference ref="149874207"/>
-							<reference ref="876697391"/>
+							<reference ref="937083178"/>
+							<reference ref="485868250"/>
 						</object>
 						<reference key="parent" ref="397700024"/>
 					</object>
@@ -763,36 +763,36 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">557</int>
-						<reference key="object" ref="432918031"/>
+						<reference key="object" ref="367520531"/>
 						<reference key="parent" ref="0"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">561</int>
-						<reference key="object" ref="149874207"/>
+						<reference key="object" ref="937083178"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="897629054"/>
+							<reference ref="136726316"/>
 						</object>
 						<reference key="parent" ref="553243540"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">562</int>
-						<reference key="object" ref="897629054"/>
-						<reference key="parent" ref="149874207"/>
+						<reference key="object" ref="136726316"/>
+						<reference key="parent" ref="937083178"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">563</int>
-						<reference key="object" ref="876697391"/>
+						<reference key="object" ref="485868250"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="701430681"/>
+							<reference ref="380064440"/>
 						</object>
 						<reference key="parent" ref="553243540"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">564</int>
-						<reference key="object" ref="701430681"/>
-						<reference key="parent" ref="876697391"/>
+						<reference key="object" ref="380064440"/>
+						<reference key="parent" ref="485868250"/>
 					</object>
 				</object>
 			</object>
@@ -848,6 +848,7 @@
 					<string>550.IBPluginDependency</string>
 					<string>551.IBPluginDependency</string>
 					<string>552.IBPluginDependency</string>
+					<string>553.CustomClassName</string>
 					<string>553.IBPluginDependency</string>
 					<string>554.IBPluginDependency</string>
 					<string>557.IBPluginDependency</string>
@@ -910,6 +911,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>ProcessNameCell</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -950,6 +952,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">MainController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ProcessNameCell</string>
+					<string key="superclassName">NSTextFieldCell</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">ProcessNameCell.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
