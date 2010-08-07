@@ -23,6 +23,7 @@ std::string * caption;
 //extern char [] version;
 const char version[] = "cool version"; //" version " VERSION "." SUBVERSION "." MINORVERSION;
 extern ProcList * processes;
+extern bool in_ui;
 time_t curtime;
 
 extern Process * unknowntcp;
@@ -287,7 +288,7 @@ void do_refresh()
 	curtime = time(NULL);
 	
 	//refreshconninode();
-	if (DEBUG || tracemode)
+	if (DEBUG || tracemode || in_ui)
 	{
 		std::cout << "\nRefreshing:\n";
 	}
@@ -414,7 +415,7 @@ void do_refresh()
 	qsort (lines, nproc, sizeof(NHLine *), GreatestFirst);
 	
 	// callback to objectivec land
-	updateGUI(lines, nproc);
+	//updateGUI(lines, nproc);
 
 	/* print them */
 	for (i=0; i<nproc; i++)

@@ -36,44 +36,8 @@
 		3A65A3641207F0840057F194 /* store.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3491207F0840057F194 /* store.c */; };
 		6147595B120A826600FFA49C /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61475919120A7ED300FFA49C /* MainMenu.xib */; };
 		6147595C120A826600FFA49C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 61475917120A7ED300FFA49C /* InfoPlist.strings */; };
-		6147595E120A827A00FFA49C /* cui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55811205455A0070FDED /* cui.cpp */; };
-		6147595F120A827A00FFA49C /* decpcap.c in Sources */ = {isa = PBXBuildFile; fileRef = 614B55831205455A0070FDED /* decpcap.c */; };
-		61475960120A827A00FFA49C /* nethogs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55881205455A0070FDED /* nethogs.cpp */; };
-		61475961120A827A00FFA49C /* packet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558A1205455A0070FDED /* packet.cpp */; };
-		61475962120A827A00FFA49C /* process.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558C1205455A0070FDED /* process.cpp */; };
-		61475963120A827A00FFA49C /* refresh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558E1205455A0070FDED /* refresh.cpp */; };
-		61475964120A827A00FFA49C /* ckkv.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3271207F0840057F194 /* ckkv.c */; };
-		61475965120A827A00FFA49C /* cvfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3281207F0840057F194 /* cvfs.c */; };
-		61475966120A827A00FFA49C /* dvch.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3291207F0840057F194 /* dvch.c */; };
-		61475967120A827A00FFA49C /* fino.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32A1207F0840057F194 /* fino.c */; };
-		61475968120A827A00FFA49C /* isfn.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32B1207F0840057F194 /* isfn.c */; };
-		61475969120A827A00FFA49C /* lkud.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32C1207F0840057F194 /* lkud.c */; };
-		6147596A120A827A00FFA49C /* pdvn.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32E1207F0840057F194 /* pdvn.c */; };
-		6147596B120A827A00FFA49C /* prfp.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A32F1207F0840057F194 /* prfp.c */; };
-		6147596C120A827A00FFA49C /* ptti.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3301207F0840057F194 /* ptti.c */; };
-		6147596D120A827A00FFA49C /* rdev.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3311207F0840057F194 /* rdev.c */; };
-		6147596E120A827A00FFA49C /* regex.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3321207F0840057F194 /* regex.c */; };
-		6147596F120A827A00FFA49C /* rmnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3331207F0840057F194 /* rmnt.c */; };
-		61475970120A827A00FFA49C /* rnam.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3341207F0840057F194 /* rnam.c */; };
-		61475971120A827A00FFA49C /* rnch.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3351207F0840057F194 /* rnch.c */; };
-		61475972120A827A00FFA49C /* rnmh.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3361207F0840057F194 /* rnmh.c */; };
-		61475973120A827A00FFA49C /* snpf.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3371207F0840057F194 /* snpf.c */; };
-		61475974120A827A00FFA49C /* ddev.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3391207F0840057F194 /* ddev.c */; };
-		61475975120A827A00FFA49C /* dfile.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33A1207F0840057F194 /* dfile.c */; };
-		61475976120A827A00FFA49C /* dmnt.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33C1207F0840057F194 /* dmnt.c */; };
-		61475977120A827A00FFA49C /* dproc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33D1207F0840057F194 /* dproc.c */; };
-		61475978120A827A00FFA49C /* dsock.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A33F1207F0840057F194 /* dsock.c */; };
-		61475979120A827A00FFA49C /* dstore.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3401207F0840057F194 /* dstore.c */; };
-		6147597A120A827A00FFA49C /* misc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3441207F0840057F194 /* misc.c */; };
-		6147597B120A827A00FFA49C /* node.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3451207F0840057F194 /* node.c */; };
-		6147597C120A827A00FFA49C /* print.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3461207F0840057F194 /* print.c */; };
-		6147597D120A827A00FFA49C /* proc.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3471207F0840057F194 /* proc.c */; };
-		6147597E120A827A00FFA49C /* store.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3491207F0840057F194 /* store.c */; };
-		6147597F120A827A00FFA49C /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61877E8312095C8000ED783A /* connection.cpp */; };
 		61475980120A827A00FFA49C /* cocoa_testAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.mm */; };
 		61475981120A827A00FFA49C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6147590C120A7E5900FFA49C /* main.m */; };
-		61475982120A828E00FFA49C /* libcurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565312054AC50070FDED /* libcurses.dylib */; };
-		61475983120A828E00FFA49C /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565712054AE80070FDED /* libpcap.dylib */; };
 		61475984120A828E00FFA49C /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614757A9120A7E0D00FFA49C /* Cocoa.framework */; };
 		614B55921205455A0070FDED /* cui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B55811205455A0070FDED /* cui.cpp */; };
 		614B55931205455A0070FDED /* decpcap.c in Sources */ = {isa = PBXBuildFile; fileRef = 614B55831205455A0070FDED /* decpcap.c */; };
@@ -83,15 +47,35 @@
 		614B55991205455A0070FDED /* refresh.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 614B558E1205455A0070FDED /* refresh.cpp */; };
 		614B565412054AC50070FDED /* libcurses.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565312054AC50070FDED /* libcurses.dylib */; };
 		614B565812054AE80070FDED /* libpcap.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 614B565712054AE80070FDED /* libpcap.dylib */; };
-		6180C383120A8DD50010977F /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6180C382120A8DD50010977F /* MainController.m */; };
+		61683069120CF72100626E77 /* nethogs in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8DD76FB20486AB0100D96B5E /* nethogs */; };
 		6180C3C7120A915E0010977F /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6180C382120A8DD50010977F /* MainController.m */; };
 		61877E8512095C8000ED783A /* connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 61877E8312095C8000ED783A /* connection.cpp */; };
-		61C5E125120BC175004B4C3A /* ProcessNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5E124120BC175004B4C3A /* ProcessNameCell.m */; };
 		61C5E15D120BC4A0004B4C3A /* ProcessNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 61C5E124120BC175004B4C3A /* ProcessNameCell.m */; };
+		61C5E33E120BE4D9004B4C3A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61C5E33D120BE4D9004B4C3A /* Security.framework */; };
 		8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* netusage.1 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		61683035120CF2DB00626E77 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DD76FA90486AB0100D96B5E /* nethogs */;
+			remoteInfo = nethogs;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		6168306D120CF72A00626E77 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				61683069120CF72100626E77 /* nethogs in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
@@ -144,12 +128,12 @@
 		614757AD120A7E0D00FFA49C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		61475905120A7E1800FFA49C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61475908120A7E4D00FFA49C /* cocoa_testAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cocoa_testAppDelegate.h; sourceTree = "<group>"; };
-		61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = cocoa_testAppDelegate.mm; sourceTree = "<group>"; };
+		61475909120A7E4D00FFA49C /* cocoa_testAppDelegate.mm */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = cocoa_testAppDelegate.mm; sourceTree = "<group>"; };
 		6147590B120A7E5900FFA49C /* netusage_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = netusage_Prefix.pch; sourceTree = "<group>"; };
 		6147590C120A7E5900FFA49C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		61475918120A7ED300FFA49C /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = InfoPlist.strings; sourceTree = "<group>"; };
 		6147591A120A7ED300FFA49C /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = MainMenu.xib; sourceTree = "<group>"; };
-		61475957120A825500FFA49C /* netusage.app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netusage.app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		61475957120A825500FFA49C /* netusage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = netusage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		614B55811205455A0070FDED /* cui.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; path = cui.cpp; sourceTree = "<group>"; };
 		614B55821205455A0070FDED /* cui.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; path = cui.h; sourceTree = "<group>"; };
 		614B55831205455A0070FDED /* decpcap.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = decpcap.c; sourceTree = "<group>"; };
@@ -166,13 +150,14 @@
 		614B565312054AC50070FDED /* libcurses.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcurses.dylib; path = usr/lib/libcurses.dylib; sourceTree = SDKROOT; };
 		614B565712054AE80070FDED /* libpcap.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libpcap.dylib; path = usr/lib/libpcap.dylib; sourceTree = SDKROOT; };
 		6180C381120A8DD50010977F /* MainController.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = MainController.h; sourceTree = "<group>"; };
-		6180C382120A8DD50010977F /* MainController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.objcpp; fileEncoding = 4; path = MainController.m; sourceTree = "<group>"; };
+		6180C382120A8DD50010977F /* MainController.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = MainController.m; sourceTree = "<group>"; };
 		61877E5712095B2100ED783A /* machine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = machine.h; sourceTree = "<group>"; };
 		61877E8312095C8000ED783A /* connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = connection.cpp; sourceTree = "<group>"; };
 		61877E8412095C8000ED783A /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
 		61C5E123120BC175004B4C3A /* ProcessNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProcessNameCell.h; sourceTree = "<group>"; };
 		61C5E124120BC175004B4C3A /* ProcessNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProcessNameCell.m; sourceTree = "<group>"; };
-		8DD76FB20486AB0100D96B5E /* netusage */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = netusage; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C5E33D120BE4D9004B4C3A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		8DD76FB20486AB0100D96B5E /* nethogs */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nethogs; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6A0FF2C0290799A04C91782 /* netusage.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = netusage.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -181,9 +166,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61475982120A828E00FFA49C /* libcurses.dylib in Frameworks */,
-				61475983120A828E00FFA49C /* libpcap.dylib in Frameworks */,
 				61475984120A828E00FFA49C /* Cocoa.framework in Frameworks */,
+				61C5E33E120BE4D9004B4C3A /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,8 +229,8 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76FB20486AB0100D96B5E /* netusage */,
-				61475957120A825500FFA49C /* netusage.app.app */,
+				8DD76FB20486AB0100D96B5E /* nethogs */,
+				61475957120A825500FFA49C /* netusage.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,6 +317,7 @@
 				614757AB120A7E0D00FFA49C /* AppKit.framework */,
 				614757AC120A7E0D00FFA49C /* CoreData.framework */,
 				614757AD120A7E0D00FFA49C /* Foundation.framework */,
+				61C5E33D120BE4D9004B4C3A /* Security.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -358,26 +343,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		61475956120A825500FFA49C /* netusage.app */ = {
+		61475956120A825500FFA49C /* netusage */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage.app" */;
+			buildConfigurationList = 6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage" */;
 			buildPhases = (
 				61475953120A825500FFA49C /* Resources */,
 				61475954120A825500FFA49C /* Sources */,
 				61475955120A825500FFA49C /* Frameworks */,
+				6168306D120CF72A00626E77 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				61683036120CF2DB00626E77 /* PBXTargetDependency */,
 			);
-			name = netusage.app;
+			name = netusage;
 			productName = netusage.app;
-			productReference = 61475957120A825500FFA49C /* netusage.app.app */;
+			productReference = 61475957120A825500FFA49C /* netusage.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8DD76FA90486AB0100D96B5E /* netusage */ = {
+		8DD76FA90486AB0100D96B5E /* nethogs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "netusage" */;
+			buildConfigurationList = 1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "nethogs" */;
 			buildPhases = (
 				8DD76FAB0486AB0100D96B5E /* Sources */,
 				8DD76FAD0486AB0100D96B5E /* Frameworks */,
@@ -387,10 +374,10 @@
 			);
 			dependencies = (
 			);
-			name = netusage;
+			name = nethogs;
 			productInstallPath = "$(HOME)/bin";
 			productName = netusage;
-			productReference = 8DD76FB20486AB0100D96B5E /* netusage */;
+			productReference = 8DD76FB20486AB0100D96B5E /* nethogs */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -405,8 +392,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DD76FA90486AB0100D96B5E /* netusage */,
-				61475956120A825500FFA49C /* netusage.app */,
+				61475956120A825500FFA49C /* netusage */,
+				8DD76FA90486AB0100D96B5E /* nethogs */,
 			);
 		};
 /* End PBXProject section */
@@ -432,40 +419,6 @@
 				6180C3C7120A915E0010977F /* MainController.m in Sources */,
 				61475980120A827A00FFA49C /* cocoa_testAppDelegate.mm in Sources */,
 				61475981120A827A00FFA49C /* main.m in Sources */,
-				6147595E120A827A00FFA49C /* cui.cpp in Sources */,
-				6147595F120A827A00FFA49C /* decpcap.c in Sources */,
-				61475960120A827A00FFA49C /* nethogs.cpp in Sources */,
-				61475961120A827A00FFA49C /* packet.cpp in Sources */,
-				61475962120A827A00FFA49C /* process.cpp in Sources */,
-				61475963120A827A00FFA49C /* refresh.cpp in Sources */,
-				61475964120A827A00FFA49C /* ckkv.c in Sources */,
-				61475965120A827A00FFA49C /* cvfs.c in Sources */,
-				61475966120A827A00FFA49C /* dvch.c in Sources */,
-				61475967120A827A00FFA49C /* fino.c in Sources */,
-				61475968120A827A00FFA49C /* isfn.c in Sources */,
-				61475969120A827A00FFA49C /* lkud.c in Sources */,
-				6147596A120A827A00FFA49C /* pdvn.c in Sources */,
-				6147596B120A827A00FFA49C /* prfp.c in Sources */,
-				6147596C120A827A00FFA49C /* ptti.c in Sources */,
-				6147596D120A827A00FFA49C /* rdev.c in Sources */,
-				6147596E120A827A00FFA49C /* regex.c in Sources */,
-				6147596F120A827A00FFA49C /* rmnt.c in Sources */,
-				61475970120A827A00FFA49C /* rnam.c in Sources */,
-				61475971120A827A00FFA49C /* rnch.c in Sources */,
-				61475972120A827A00FFA49C /* rnmh.c in Sources */,
-				61475973120A827A00FFA49C /* snpf.c in Sources */,
-				61475974120A827A00FFA49C /* ddev.c in Sources */,
-				61475975120A827A00FFA49C /* dfile.c in Sources */,
-				61475976120A827A00FFA49C /* dmnt.c in Sources */,
-				61475977120A827A00FFA49C /* dproc.c in Sources */,
-				61475978120A827A00FFA49C /* dsock.c in Sources */,
-				61475979120A827A00FFA49C /* dstore.c in Sources */,
-				6147597A120A827A00FFA49C /* misc.c in Sources */,
-				6147597B120A827A00FFA49C /* node.c in Sources */,
-				6147597C120A827A00FFA49C /* print.c in Sources */,
-				6147597D120A827A00FFA49C /* proc.c in Sources */,
-				6147597E120A827A00FFA49C /* store.c in Sources */,
-				6147597F120A827A00FFA49C /* connection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,12 +460,18 @@
 				3A65A3631207F0840057F194 /* proc.c in Sources */,
 				3A65A3641207F0840057F194 /* store.c in Sources */,
 				61877E8512095C8000ED783A /* connection.cpp in Sources */,
-				6180C383120A8DD50010977F /* MainController.m in Sources */,
-				61C5E125120BC175004B4C3A /* ProcessNameCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		61683036120CF2DB00626E77 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DD76FA90486AB0100D96B5E /* nethogs */;
+			targetProxy = 61683035120CF2DB00626E77 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		61475917120A7ED300FFA49C /* InfoPlist.strings */ = {
@@ -546,7 +505,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = netusage;
+				PRODUCT_NAME = nethogs;
 			};
 			name = Debug;
 		};
@@ -557,7 +516,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_MODEL_TUNING = G5;
 				INSTALL_PATH = /usr/local/bin;
-				PRODUCT_NAME = netusage;
+				PRODUCT_NAME = nethogs;
 			};
 			name = Release;
 		};
@@ -604,12 +563,18 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = netusage_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				OTHER_CFLAGS = (
+					"-DDARWINV=10640",
+					"-lncurses",
+					"-DIN_UI=1",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -617,7 +582,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = netusage.app;
+				PRODUCT_NAME = netusage;
 			};
 			name = Debug;
 		};
@@ -628,6 +593,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_INPUT_FILETYPE = sourcecode.c.objc;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = netusage_Prefix.pch;
@@ -640,7 +606,7 @@
 					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = netusage.app;
+				PRODUCT_NAME = netusage;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -648,7 +614,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "netusage" */ = {
+		1DEB928508733DD80010E9CD /* Build configuration list for PBXNativeTarget "nethogs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB928608733DD80010E9CD /* Debug */,
@@ -666,7 +632,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage.app" */ = {
+		6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				61475959120A825500FFA49C /* Debug */,

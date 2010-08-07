@@ -7,23 +7,24 @@
 //
 
 #import "MainController.h"
-#import "cui.h"
+//#import "cui.h"
 #import "ProcessNameCell.h"
 
 @implementation MainController
 @synthesize myTableView;
 
-NSMutableDictionary *procs = [[NSMutableDictionary alloc] init];
+
 MainController *instance;
 
 - (void) awakeFromNib {
 	instance = self;
+	procs = [[NSMutableDictionary alloc] init];
 	NSLog(@"awoken from nib");
 }
 
 - (int)numberOfRowsInTableView:(NSTableView *)tableView
 {
-	myTableView = tableView;
+	  myTableView = tableView;
     return [procs count];
 }
 
@@ -55,6 +56,7 @@ MainController *instance;
 	
 	return NULL;
 }
+/*
 
 void updateGUI(NHLine **lines, int numprocs) {
 	NSLog(@"hey there, we have %i procs", numprocs);
@@ -104,6 +106,7 @@ void updateGUI(NHLine **lines, int numprocs) {
 	
 	[instance.myTableView reloadData];
 }
+*/
 @end
 
 
