@@ -10,7 +10,6 @@
 
 @interface MainController : NSObject<NSTableViewDataSource, NSTableViewDelegate> {
 	NSTableView *myTableView;
-	NSMutableDictionary *procs;
 }
 @property(nonatomic,assign) NSTableView *myTableView;
 

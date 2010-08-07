@@ -37,7 +37,6 @@ unsigned refreshdelay = 1;
 bool tracemode = false;
 bool bughuntmode = false;
 bool needrefresh = true;
-bool in_ui = true;
 //packet_type packettype = packet_ethernet;
 //dp_link_type linktype = dp_link_ethernet;
 const char version[] = "cool version"; //{" version ", V, ".", SV, ".", MV};
@@ -281,7 +280,7 @@ public:
 	handle * next;
 };
 
-int main (int argc, char** argv)
+int nh_main (int argc, char** argv)
 {
 	process_init();
 
@@ -337,12 +336,11 @@ int main (int argc, char** argv)
 		devices = new device (strdup("en1"));
 	}
 
-	
-	if ((!tracemode) && (!DEBUG) && (!in_ui)){
+	if ((!tracemode) && (!DEBUG)){
 		init_ui();
 	}
 
-	if ((!in_ui) && NEEDROOT && (getuid() != 0))
+	if (NEEDROOT && (getuid() != 0))
 		forceExit("You need to be root to run NetHogs!");
 
 	char errbuf[PCAP_ERRBUF_SIZE];
