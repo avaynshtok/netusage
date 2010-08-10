@@ -1,14 +1,16 @@
 //
-//  main.m
-//  cocoa_test
+//  nu_launcher.m
+//  netusage
 //
-//  Created by Anton Vaynshtok on 8/4/10.
+//  Created by Anton Vaynshtok on 8/8/10.
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import "nu_launcher.h"
 
-/*
+
+@implementation nu_launcher
+
 void launchGUI() {	
 	AuthorizationRef auth = NULL;
 	OSStatus err;
@@ -21,7 +23,7 @@ void launchGUI() {
 	AuthorizationFlags myFlags;
 	myFlags = kAuthorizationFlagDefaults |	kAuthorizationFlagInteractionAllowed | kAuthorizationFlagExtendRights | kAuthorizationFlagPreAuthorize;
 	
-	err = AuthorizationCreate(NULL, kAuthorizationEmptyEnvironment, myFlags, &auth);
+	err = AuthorizationCreate(&myRights, kAuthorizationEmptyEnvironment, myFlags, &auth);
 	if ( err != errAuthorizationSuccess ) {
 		NSLog(@"authorizationcreate failed");
 	}
@@ -34,27 +36,34 @@ void launchGUI() {
 	CFURLGetFileSystemRepresentation(nethogsUrl, true, (UInt8 *) toolPath, 10000);
 	
 	NSLog(@"toolPath: %s", toolPath);
-	char *arg = "--do-gui";
 
+	/*char *arg = "--do-gui";
+	
 	//char *abc = "23";
 	const char *args[2];
 	args[0] = toolPath;
 	args[1] = arg;
+	*/
 	
 	// call the tool
-	err = AuthorizationExecuteWithPrivileges(auth, toolPath, kAuthorizationFlagDefaults, &arg, NULL);
-	//NSLog(@"err: %@", err);
+	err = AuthorizationExecuteWithPrivileges(auth, toolPath, kAuthorizationFlagDefaults, NULL, NULL);
+	NSLog(@"err: %@", err);
 }
-*/
 
 int main(int argc, char *argv[])
 {
 	//NSLog(@"num args: %i", argc);
 	//if (argc == 2) { // && strcmp(argv[1], "--do-gui") == 0) {
-		return NSApplicationMain(argc,  (const char **) argv);
+	//return NSApplicationMain(argc,  (const char **) argv);
 	//}		
-//	else {
-//		launchGUI();
-//		exit(1);
-//	}
+	//	else {
+  launchGUI();
+//	sleep(10000);
+	
+//	printf("hi there\n");
+	exit(0);
+	//	}
 }
+
+
+@end

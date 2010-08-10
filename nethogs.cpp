@@ -41,6 +41,8 @@ bool needrefresh = true;
 //dp_link_type linktype = dp_link_ethernet;
 const char version[] = "cool version"; //{" version ", V, ".", SV, ".", MV};
 
+bool in_ui = true;
+
 char * currentdevice = NULL;
 
 //timeval curtime;
@@ -336,12 +338,12 @@ int nh_main (int argc, char** argv)
 		devices = new device (strdup("en1"));
 	}
 
-	if ((!tracemode) && (!DEBUG)){
+	if (!in_ui && (!tracemode) && (!DEBUG)){
 		init_ui();
 	}
 
-	if (NEEDROOT && (getuid() != 0))
-		forceExit("You need to be root to run NetHogs!");
+//	if (NEEDROOT && (getuid() != 0))
+//		forceExit("You need to be root to run NetHogs!");
 
 	char errbuf[PCAP_ERRBUF_SIZE];
 

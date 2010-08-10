@@ -18,6 +18,7 @@
 #include "cui.h"
 
 extern void updateGUI(NHLine ** lines, int numprocs);
+extern bool in_ui;
 
 std::string * caption;
 //extern char [] version;
@@ -287,7 +288,7 @@ void do_refresh()
 	curtime = time(NULL);
 	
 	//refreshconninode();
-	if (DEBUG || tracemode)
+	if (in_ui || DEBUG || tracemode)
 	{
 		std::cout << "\nRefreshing:\n";
 	}
@@ -419,7 +420,9 @@ void do_refresh()
 	/* print them */
 	for (i=0; i<nproc; i++)
 	{
-		lines[i]->show(i);
+		if (!in_ui) {
+		  lines[i]->show(i);
+		}
 		recv_global += lines[i]->recv_value;
 		sent_global += lines[i]->sent_value;
 		delete lines[i];
@@ -437,7 +440,7 @@ void do_refresh()
 	
 	time_t seconds = time(NULL);
 
-	if ((!tracemode) && (!DEBUG)){
+	if (!in_ui && (!tracemode) && (!DEBUG)){
 		attron(A_REVERSE);
 		mvprintw (3+1+i, 0, "  TOTAL                %i                  %10.3f  %10.3f", seconds, sent_global, recv_global);
 		if (viewMode == VIEWMODE_KBPS)

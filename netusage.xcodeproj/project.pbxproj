@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A1861DA1211D3A0001E9289 /* nu_launcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A1861D81211D3A0001E9289 /* nu_launcher.m */; };
+		3A1861DE1211D3C6001E9289 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6118CD6F120D034E00232E07 /* Security.framework */; };
+		3A1862371211D431001E9289 /* nu_launcher in CopyFiles */ = {isa = PBXBuildFile; fileRef = 3A1861CE1211D36A001E9289 /* nu_launcher */; };
 		3A65A34A1207F0840057F194 /* ckkv.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3271207F0840057F194 /* ckkv.c */; };
 		3A65A34B1207F0840057F194 /* cvfs.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3281207F0840057F194 /* cvfs.c */; };
 		3A65A34C1207F0840057F194 /* dvch.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A65A3291207F0840057F194 /* dvch.c */; };
@@ -92,7 +95,27 @@
 		8DD76FB00486AB0100D96B5E /* netusage.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6A0FF2C0290799A04C91782 /* netusage.1 */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3A1862381211D446001E9289 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 08FB7793FE84155DC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A1861CD1211D36A001E9289 /* nu_launcher */;
+			remoteInfo = nu_launcher;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
+		3A18623A1211D48D001E9289 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				3A1862371211D431001E9289 /* nu_launcher in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DD76FAF0486AB0100D96B5E /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 8;
@@ -106,6 +129,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3A1861CE1211D36A001E9289 /* nu_launcher */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = nu_launcher; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A1861D81211D3A0001E9289 /* nu_launcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = nu_launcher.m; sourceTree = "<group>"; };
+		3A1861D91211D3A0001E9289 /* nu_launcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nu_launcher.h; sourceTree = "<group>"; };
 		3A65A3271207F0840057F194 /* ckkv.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ckkv.c; sourceTree = "<group>"; };
 		3A65A3281207F0840057F194 /* cvfs.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cvfs.c; sourceTree = "<group>"; };
 		3A65A3291207F0840057F194 /* dvch.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dvch.c; sourceTree = "<group>"; };
@@ -179,6 +205,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3A1861CC1211D36A001E9289 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A1861DE1211D3C6001E9289 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61475955120A825500FFA49C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -218,6 +252,8 @@
 				6180C382120A8DD50010977F /* MainController.m */,
 				61C5E123120BC175004B4C3A /* ProcessNameCell.h */,
 				61C5E124120BC175004B4C3A /* ProcessNameCell.m */,
+				3A1861D81211D3A0001E9289 /* nu_launcher.m */,
+				3A1861D91211D3A0001E9289 /* nu_launcher.h */,
 			);
 			name = netusage;
 			sourceTree = "<group>";
@@ -250,6 +286,7 @@
 			children = (
 				8DD76FB20486AB0100D96B5E /* nethogs */,
 				61475957120A825500FFA49C /* netusage.app */,
+				3A1861CE1211D36A001E9289 /* nu_launcher */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +399,22 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3A1861CD1211D36A001E9289 /* nu_launcher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A1861DB1211D3A0001E9289 /* Build configuration list for PBXNativeTarget "nu_launcher" */;
+			buildPhases = (
+				3A1861CB1211D36A001E9289 /* Sources */,
+				3A1861CC1211D36A001E9289 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = nu_launcher;
+			productName = nu_launcher;
+			productReference = 3A1861CE1211D36A001E9289 /* nu_launcher */;
+			productType = "com.apple.product-type.tool";
+		};
 		61475956120A825500FFA49C /* netusage */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6147598A120A82B400FFA49C /* Build configuration list for PBXNativeTarget "netusage" */;
@@ -369,10 +422,12 @@
 				61475953120A825500FFA49C /* Resources */,
 				61475954120A825500FFA49C /* Sources */,
 				61475955120A825500FFA49C /* Frameworks */,
+				3A18623A1211D48D001E9289 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3A1862391211D446001E9289 /* PBXTargetDependency */,
 			);
 			name = netusage;
 			productName = netusage.app;
@@ -411,6 +466,7 @@
 			targets = (
 				8DD76FA90486AB0100D96B5E /* nethogs */,
 				61475956120A825500FFA49C /* netusage */,
+				3A1861CD1211D36A001E9289 /* nu_launcher */,
 			);
 		};
 /* End PBXProject section */
@@ -428,6 +484,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3A1861CB1211D36A001E9289 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A1861DA1211D3A0001E9289 /* nu_launcher.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61475954120A825500FFA49C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -518,6 +582,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3A1862391211D446001E9289 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A1861CD1211D36A001E9289 /* nu_launcher */;
+			targetProxy = 3A1862381211D446001E9289 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		61475917120A7ED300FFA49C /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -601,6 +673,52 @@
 			};
 			name = Release;
 		};
+		3A1861D01211D36A001E9289 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = nu_launcher;
+			};
+			name = Debug;
+		};
+		3A1861D11211D36A001E9289 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = nu_launcher;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		61475959120A825500FFA49C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -666,6 +784,15 @@
 			buildConfigurations = (
 				1DEB928A08733DD80010E9CD /* Debug */,
 				1DEB928B08733DD80010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A1861DB1211D3A0001E9289 /* Build configuration list for PBXNativeTarget "nu_launcher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A1861D01211D36A001E9289 /* Debug */,
+				3A1861D11211D36A001E9289 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
