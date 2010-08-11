@@ -315,8 +315,8 @@ void updateProcList() {
 
 				//printf("associating %s with %i (var: %i), proc: %s (%08X)\n", hash, proc->pid, pid, proc->name, (int)proc);
 
-				//std::string hash_string = std::string(hash);
-				conn_to_proc[hash] = proc;
+				std::string hash_string = std::string(hash);
+				conn_to_proc[hash_string] = proc;
 				
 				free(from_port);
 				free(to_port);
@@ -340,6 +340,7 @@ void updateProcList() {
 		Lproc[i].file = NULL;
 	}
 	
+	free(Namech);
 //	needrefresh = true;
 }
 
