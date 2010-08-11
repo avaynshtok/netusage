@@ -240,6 +240,7 @@ void updateProcList() {
 	(void) snpf(options, sizeof(options), "%%#%sx", SZOFFPSPEC);
 	SzOffFmt_x = sv_fmt_str(options);
 	
+	/*
 	if (Nlproc > 1) {
 		if (Nlproc > sp) {
 			len = (MALLOC_S)(Nlproc * sizeof(struct lproc *));
@@ -260,6 +261,7 @@ void updateProcList() {
 		(void) qsort((QSORT_P *)slp, (size_t)Nlproc,
 					 (size_t)sizeof(struct lproc *), comppid);
 	}
+	*/
 	
 	for (i = 0; i < Nlproc; i++) {
 		//printf("\ngot pid: %i, %s  ", Lproc[i].pid, Lproc[i].cmd);
@@ -313,15 +315,29 @@ void updateProcList() {
 
 				//printf("associating %s with %i (var: %i), proc: %s (%08X)\n", hash, proc->pid, pid, proc->name, (int)proc);
 
-				std::string hash_string = std::string(hash);
-				conn_to_proc[hash_string] = proc;
+				//std::string hash_string = std::string(hash);
+				conn_to_proc[hash] = proc;
 				
-
+				free(from_port);
+				free(to_port);
+				free(hash);
+				
 				//dumpConnToProc();
 				//printf("%s %s:%s -> %s:%s %s\n", Lproc[i].cmd, from, from_port, to, to_port, file->iproto);
 			}
+			
+			struct lfile *prev = file;
 			file = file->next;
+			
+			prev->next = NULL;
+			
+			// kinda crazy to do this here, but otherwise we leak lsof alloc'd memory...
+			free(prev->dev_ch);
+			free(prev->nm);
+			free(prev->nma);
+			free(prev);
 		}
+		Lproc[i].file = NULL;
 	}
 	
 //	needrefresh = true;

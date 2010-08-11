@@ -58,6 +58,7 @@ MainController *instance;
 
 void updateGUI(NHLine **lines, int numprocs) {
 	NSLog(@"hey there, we have %i procs", numprocs);
+	NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 		
 	NSMutableSet *currentPids = [[[NSMutableSet alloc] init] autorelease];
 	for (int i = 0; i < numprocs; i++) {
@@ -65,7 +66,7 @@ void updateGUI(NHLine **lines, int numprocs) {
 		
 		pid_t pid = line->m_pid;
 		if (pid != 0) {
-			NSRunningApplication *app = [[NSRunningApplication runningApplicationWithProcessIdentifier:pid] autorelease];			
+			NSRunningApplication *app = [NSRunningApplication runningApplicationWithProcessIdentifier:pid];			
 			NSString *processNameString = app.localizedName;
 			
 			if (processNameString == NULL) {
@@ -92,7 +93,7 @@ void updateGUI(NHLine **lines, int numprocs) {
 			[procs setObject:pi forKey:pidNum];
 			[currentPids addObject:pidNum];
 			
-			[pidNum release];		
+			//[pidNum release];		
 		}
 	}
 	
@@ -103,6 +104,8 @@ void updateGUI(NHLine **lines, int numprocs) {
 	}
 	
 	[instance.myTableView reloadData];
+	
+	[pool release];
 }
 @end
 

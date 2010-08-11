@@ -27,5 +27,5 @@
 @property(nonatomic) pid_t pid;
 @property(nonatomic) double sent;
 @property(nonatomic) double received;
-@property(nonatomic, assign) NSImage *icon;
+@property(nonatomic, copy) NSImage *icon;
 @end
